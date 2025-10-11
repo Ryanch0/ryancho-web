@@ -4,7 +4,7 @@ import './globals.css'
 
 import { PropsWithChildren } from 'react'
 
-import MSWWrapper from '@/msw/MswWrapper/MswWrapper'
+import MswWrapper from '@/msw/MswWrapper/MswWrapper'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,7 +15,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body>
-        <MSWWrapper>{children}</MSWWrapper>
+        <MswWrapper>{children}</MswWrapper>
       </body>
     </html>
   )

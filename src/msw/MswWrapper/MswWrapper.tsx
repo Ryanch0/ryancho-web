@@ -6,7 +6,7 @@ import { setupWorker } from 'msw/browser'
 
 const worker = setupWorker() //TODO add mock api
 
-export default function MSWWrapper({ children }: PropsWithChildren) {
+export default function MswWrapper({ children }: PropsWithChildren) {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
