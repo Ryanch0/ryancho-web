@@ -2,7 +2,7 @@ import { createClientForServer } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export async function middleware(request: NextRequest) {
+export const middleware = async (request: NextRequest) => {
   const response = NextResponse.next({ request })
 
   const supabase = await createClientForServer()
