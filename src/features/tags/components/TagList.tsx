@@ -1,7 +1,7 @@
-import { getAllTags } from '@/lib/queries/posts'
+import { listAllTagsHandler } from '@/external/handler/posts/postsHandler'
 
 const TagList = async () => {
-  const tags = await getAllTags()
+  const tags = await listAllTagsHandler()
 
   return (
     <ul>

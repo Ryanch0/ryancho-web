@@ -1,11 +1,11 @@
+import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
+import { findPostBySlug } from '@/external/repository/posts'
 import PostDetail from '@/features/posts/components/PostDetail'
-import { getPostBySlug } from '@/lib/queries/posts'
 import Hero from '@/shared/components/Hero'
-import { formatLongDate } from '@/utils/date'
 import { Metadata } from 'next'
 import { NextParsedUrlQuery } from 'next/dist/server/request-meta'
 import Link from 'next/link'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
 type Props = {
   params: Promise<NextParsedUrlQuery>
@@ -17,10 +17,10 @@ export const generateMetadata = async ({
   const { slug } = await params
 
   if (!slug || typeof slug !== 'string') {
-    redirect('/')
+    notFound()
   }
 
-  const data = await getPostBySlug(slug)
+  const data = await findPostBySlug(slug)
 
   return {
     description: data?.meta_description
@@ -31,23 +31,17 @@ const Page = async ({ params }: Props) => {
   const { slug } = await params
 
   if (!slug || typeof slug !== 'string') {
-    redirect('/')
-  }
-
-  const data = await getPostBySlug(slug)
-
-  if (!data) {
     notFound()
   }
+
+  const data = await findPostBySlugHandler(slug)
 
   return (
     <>
       <Hero>
         <h1>{data.title}</h1>
-        <p>Published {formatLongDate(data.date)}</p>
-        {data.last_modified && (
-          <p>Last updated {formatLongDate(data.last_modified)}</p>
-        )}
+        <p>Published {data.date}</p>
+        {data.last_modified && <p>Last updated {data.last_modified}</p>}
         <Link href={`/write/${data.id}`}>Update</Link>
         <form action="">
           <button type="submit">Delete</button>

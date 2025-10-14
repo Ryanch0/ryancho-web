@@ -1,15 +1,11 @@
-import { createPost } from '@/actions/post'
+import { createPostAction } from '@/features/posts/actions/post'
+import PostForm from '@/features/posts/components/PostForm'
 
 const Page = () => {
   return (
     <>
       <h2>New Post</h2>
-      <form action={createPost}>
-        <input name="title" type="text" />
-        <input name="tags" type="text" />
-        <textarea name="content" />
-        <button type="submit">Submit</button>
-      </form>
+      <PostForm action={createPostAction} />
     </>
   )
 }

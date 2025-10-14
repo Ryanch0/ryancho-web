@@ -14,10 +14,10 @@ export const generatePreview = (
   maxLength: number = 200
 ): string => {
   const plainText = content
-    .replace(/!\[.*?\]\(.*?\)/g, '')
+    .replace(/!\[.*?]\(.*?\)/g, '')
     .replace(/<[^>]*>/g, '')
     .replace(/[#*_~`]/g, '')
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/\[([^\]]+)]\([^)]+\)/g, '$1')
     .trim()
 
   if (plainText.length <= maxLength) {
@@ -32,4 +32,12 @@ export const generatePreview = (
   }
 
   return trimmed + '...'
+}
+
+export const generateTags = (tagsString: string) => {
+  //TODO tags를 string[]로 변환 (쉼표로 구분된 문자열 가정)
+  return tagsString
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter((tag) => tag.length > 0)
 }

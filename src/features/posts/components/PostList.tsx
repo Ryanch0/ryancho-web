@@ -1,8 +1,8 @@
+import { listAllPostsHandler } from '@/external/handler/posts/postsHandler'
 import PostItem from '@/features/posts/components/PostItem'
-import { getAllPosts } from '@/lib/queries/posts'
 
 const PostList = async () => {
-  const data = await getAllPosts()
+  const data = await listAllPostsHandler()
 
   return (
     <ul>
