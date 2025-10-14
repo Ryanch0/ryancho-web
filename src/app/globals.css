@@ -3,6 +3,6 @@
 @plugin "@tailwindcss/typography";
 
 body {
-    font-family: "Wotfard", "Wotfard-fallback", sans-serif;;
-    background-color: #6676;
+  font-family: 'Wotfard', 'Wotfard-fallback', sans-serif;
+  background-color: #6676;
 }
