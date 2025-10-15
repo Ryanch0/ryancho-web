@@ -1,17 +1,14 @@
-import Link from 'next/link'
+import { ReactNode } from 'react'
 
 type Props = {
-  title: string
   preview: string
   tags?: string[]
-  slug: string
+  title: ReactNode
 }
-const PostItem = ({ title, preview, tags, slug }: Props) => {
+const PostItem = ({ preview, tags, title }: Props) => {
   return (
     <li>
-      <Link href={`/posts/${slug}`}>
-        <h2 className={'text-red-700'}>{title}</h2>
-      </Link>
+      {title}
       {tags?.map((tag) => {
         return (
           <span key={tag} className={'text-blue-500 pr-1'}>
