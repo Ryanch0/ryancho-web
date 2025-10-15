@@ -1,7 +1,6 @@
 'use server'
 
 import { signInHandler } from '@/external/handler/auth/authHandler'
-import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 export const signInAction = async (
@@ -17,8 +16,6 @@ export const signInAction = async (
   if (result?.error) {
     return { error: result.error }
   }
-
-  revalidatePath('/', 'layout')
 
   return redirect(redirectUrl || '/')
 }
