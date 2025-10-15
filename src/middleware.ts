@@ -12,13 +12,24 @@ export const middleware = async (request: NextRequest) => {
     error
   } = await supabase.auth.getUser()
 
+  const isLoginPage = request.nextUrl.pathname === '/login'
+
+  if (isLoginPage) {
+    if (!user || error) return response
+
+    return NextResponse.redirect(new URL('/', request.url))
+  }
+
   if (!user || error) {
-    return NextResponse.redirect(new URL('/login', request.url))
+    const redirectUrl = new URL('/login', request.url)
+    redirectUrl.searchParams.set('redirect', request.nextUrl.pathname)
+
+    return NextResponse.redirect(redirectUrl)
   }
 
   return response
 }
 
 export const config = {
-  matcher: ['/write/:path*']
+  matcher: ['/write/:path*', '/login']
 }

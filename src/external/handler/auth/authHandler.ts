@@ -1,19 +1,20 @@
+import { signInFormState } from '@/features/login/types/login'
 import { createClientForServer } from '@/lib/supabase/server'
 
 export const signInHandler = async (email: string, password: string) => {
   const supabase = await createClientForServer()
-  const error: string[] = []
+  const error: signInFormState = {}
 
   if (!email || email.trim().length === 0) {
-    error.push('Email is required')
+    error.email = 'Email is required'
   }
 
   if (!password || password.trim().length === 0) {
-    error.push('Password is required')
+    error.password = 'Password is required'
   }
 
-  if (error.length > 0) {
-    return { error } //TODO 에러 핸들링
+  if (Object.keys(error).length > 0) {
+    return { error }
   }
 
   const { error: authError } = await supabase.auth.signInWithPassword({
@@ -22,7 +23,7 @@ export const signInHandler = async (email: string, password: string) => {
   })
 
   if (authError) {
-    return { error: [authError.message] }
+    return { error: { ...error, message: authError.message } }
   }
 }
 
