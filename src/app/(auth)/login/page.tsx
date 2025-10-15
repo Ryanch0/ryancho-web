@@ -1,5 +1,5 @@
 import { signInAction } from '@/features/login/actions/login'
-import LoginForm from '@/features/login/LoginForm'
+import LoginForm from '@/features/login/components/LoginForm'
 import { SearchParams } from 'next/dist/server/request/search-params'
 
 type Props = {
