@@ -1,5 +1,6 @@
 'use server'
 
+import { PATH } from '@/constants/path'
 import { authCheckHandler } from '@/external/handler/auth/authHandler'
 import {
   createPostHandler,
@@ -13,21 +14,21 @@ export const createPostAction = async (formData: FormData) => {
   const { isAuthorized } = await authCheckHandler()
 
   if (!isAuthorized) {
-    redirect('/login')
+    redirect(PATH.LOGIN)
   }
   const title = formData.get('title') as string
   const content = formData.get('content') as string
   const tagsString = formData.get('tags') as string
   const { slug } = await createPostHandler(title, content, tagsString)
-  revalidatePath(`/posts`)
-  redirect(`/posts/${slug}`)
+  revalidatePath(PATH.POSTS)
+  redirect(`${PATH.POSTS}/${slug}`)
 }
 
 export const updatePostAction = async (id: string, formData: FormData) => {
   const { isAuthorized } = await authCheckHandler()
 
   if (!isAuthorized) {
-    redirect('/login')
+    redirect(PATH.LOGIN)
   }
 
   const title = formData.get('title') as string
@@ -38,18 +39,18 @@ export const updatePostAction = async (id: string, formData: FormData) => {
   if (!slug) {
     notFound()
   }
-  revalidatePath(`/posts/${slug}`)
-  redirect(`/posts/${slug}`)
+  revalidatePath(`${PATH.POSTS}/${slug}`)
+  redirect(`${PATH.POSTS}/${slug}`)
 }
 
 export const deletePostAction = async (id: string) => {
   const { isAuthorized } = await authCheckHandler()
 
   if (!isAuthorized) {
-    redirect('/login')
+    redirect(PATH.LOGIN)
   }
   await deletePostHandler(id)
 
-  revalidatePath('/posts')
-  redirect('/posts')
+  revalidatePath(PATH.POSTS)
+  redirect(PATH.POSTS)
 }

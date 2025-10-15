@@ -1,22 +1,24 @@
+import { PATH } from '@/constants/path'
+import SearchModalTrigger from '@/features/search/components/SearchModalTrigger'
 import Link from 'next/link'
 
 const Header = () => {
   return (
-    <ul className="flex items-center gap-x-10">
+    <ul className="flex items-center gap-x-10 relative">
       <li>
-        <Link href="/posts">LOGO</Link>
+        <Link href={PATH.POSTS}>LOGO</Link>
       </li>
       <li>
-        <Link href="/about-me">About me</Link>
+        <Link href={PATH.ABOUT_ME}>About me</Link>
       </li>
       <li className="ml-auto">
-        <Link href="#">Search</Link>
+        <SearchModalTrigger />
       </li>
       <li>
-        <Link href="#">Mode</Link>
+        <Link href={'#'}>Mode</Link>
       </li>
       <li>
-        <Link href="/write">Create Post</Link>
+        <Link href={PATH.WRITE}>Create Post</Link>
       </li>
     </ul>
   )

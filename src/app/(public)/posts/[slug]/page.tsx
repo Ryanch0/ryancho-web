@@ -1,5 +1,6 @@
+import { PATH } from '@/constants/path'
 import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
-import { findPostBySlug } from '@/external/repository/posts'
+import { findPostBySlug } from '@/external/repository/posts-server'
 import { deletePostAction } from '@/features/posts/actions/post'
 import PostDetail from '@/features/posts/components/PostDetail'
 import Hero from '@/shared/components/Hero'
@@ -43,7 +44,7 @@ const Page = async ({ params }: Props) => {
         <h1>{data.title}</h1>
         <p>Published {data.date}</p>
         {data.last_modified && <p>Last updated {data.last_modified}</p>}
-        <Link href={`/write/${data.id}`}>Update</Link>
+        <Link href={`${PATH.WRITE}/${data.id}`}>Update</Link>
         <form action={deletePostAction.bind(null, data.id)}>
           <button type="submit">Delete</button>
         </form>

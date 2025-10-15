@@ -1,5 +1,6 @@
 'use server'
 
+import { PATH } from '@/constants/path'
 import { signInHandler } from '@/external/handler/auth/authHandler'
 import { redirect } from 'next/navigation'
 
@@ -17,5 +18,5 @@ export const signInAction = async (
     return { error: result.error }
   }
 
-  return redirect(redirectUrl || '/')
+  return redirect(redirectUrl || PATH.POSTS)
 }
