@@ -1,5 +1,6 @@
 import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
 import { findPostBySlug } from '@/external/repository/posts'
+import { deletePostAction } from '@/features/posts/actions/post'
 import PostDetail from '@/features/posts/components/PostDetail'
 import Hero from '@/shared/components/Hero'
 import { Metadata } from 'next'
@@ -43,7 +44,7 @@ const Page = async ({ params }: Props) => {
         <p>Published {data.date}</p>
         {data.last_modified && <p>Last updated {data.last_modified}</p>}
         <Link href={`/write/${data.id}`}>Update</Link>
-        <form action="">
+        <form action={deletePostAction.bind(null, data.id)}>
           <button type="submit">Delete</button>
         </form>
 

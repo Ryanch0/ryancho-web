@@ -3,6 +3,7 @@
 import { authCheckHandler } from '@/external/handler/auth/authHandler'
 import {
   createPostHandler,
+  deletePostHandler,
   updatePostHandler
 } from '@/external/handler/posts/postsHandler'
 import { revalidatePath } from 'next/cache'
@@ -41,12 +42,14 @@ export const updatePostAction = async (id: string, formData: FormData) => {
   redirect(`/posts/${slug}`)
 }
 
-export const deletePost = async () => {
+export const deletePostAction = async (id: string) => {
   const { isAuthorized } = await authCheckHandler()
 
   if (!isAuthorized) {
     redirect('/login')
   }
+  await deletePostHandler(id)
 
-  //TODO DELETE
+  revalidatePath('/posts')
+  redirect('/posts')
 }

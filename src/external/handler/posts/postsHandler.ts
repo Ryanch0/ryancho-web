@@ -1,5 +1,6 @@
 import {
   createPost,
+  deletePost,
   findAllPosts,
   findAllTags,
   findPostById,
@@ -83,4 +84,8 @@ export const updatePostHandler = async (
   const dto = { title, content, tags, preview, meta_description, last_modified }
 
   return await updatePost(id, dto)
+}
+
+export const deletePostHandler = async (id: string) => {
+  return await deletePost(id)
 }
