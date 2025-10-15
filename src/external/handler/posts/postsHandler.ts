@@ -5,6 +5,7 @@ import {
   findAllTags,
   findPostById,
   findPostBySlug,
+  findPostsByTag,
   updatePost
 } from '@/external/repository/posts'
 import {
@@ -22,6 +23,10 @@ import { formatLongDate } from '@/utils/date'
 
 export const listAllPostsHandler = async (): Promise<PostListItem[]> => {
   return await findAllPosts()
+}
+
+export const listPostByTag = async (tag: string): Promise<PostListItem[]> => {
+  return await findPostsByTag(tag)
 }
 
 export const findPostBySlugHandler = async (slug: string): Promise<Post> => {

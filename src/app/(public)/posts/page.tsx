@@ -3,8 +3,15 @@ import { Suspense } from 'react'
 import PostList from '@/features/posts/components/PostList'
 import TagList from '@/features/tags/components/TagList'
 import Hero from '@/shared/components/Hero'
+import { SearchParams } from 'next/dist/server/request/search-params'
 
-const Page = () => {
+type Props = {
+  searchParams: Promise<SearchParams>
+}
+const Page = async ({ searchParams }: Props) => {
+  const { tag } = await searchParams
+  const tagName = typeof tag === 'string' ? tag : undefined
+
   return (
     <>
       <Hero>
@@ -12,7 +19,7 @@ const Page = () => {
       </Hero>
       <main className={'flex justify-between'}>
         <Suspense fallback={'fetching post list...'}>
-          <PostList />
+          <PostList tag={tagName} />
         </Suspense>
         <Suspense fallback={'fetching tags list...'}>
           <TagList />

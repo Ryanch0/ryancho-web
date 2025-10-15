@@ -16,6 +16,21 @@ export const findAllPosts = async () => {
   return posts
 }
 
+export const findPostsByTag = async (tag: string) => {
+  const supabase = await createClientForServer()
+  const { error, data } = await supabase
+    .from('posts')
+    .select('id, title, preview, tags, slug')
+    .order('date', { ascending: false })
+    .contains('tags', [tag])
+
+  if (error) {
+    throw new Error('Failed to fetch posts by tag')
+  }
+
+  return data
+}
+
 export const findPostBySlug = async (slug: string) => {
   const supabase = await createClientForServer()
 
