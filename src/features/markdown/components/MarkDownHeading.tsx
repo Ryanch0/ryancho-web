@@ -7,6 +7,7 @@ type Props = {
   level: 1 | 2 | 3 | 4
   children: ReactNode
 }
+
 const MarkDownHeading = ({ level, children }: Props) => {
   const id =
     typeof children === 'string'
@@ -15,7 +16,7 @@ const MarkDownHeading = ({ level, children }: Props) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements
 
   return (
-    <Tag id={id}>
+    <Tag id={id} data-markdown-head>
       <Link href={`#${id}`}>{children}</Link>
     </Tag>
   )
