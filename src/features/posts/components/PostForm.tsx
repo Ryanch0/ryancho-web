@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import MarkDownForm from '@/features/markdown/components/MarkDownForm'
+import MarkDownField from '@/features/markdown/components/MarkDownField'
 
 type Props = {
   title?: string
@@ -17,7 +17,7 @@ const PostForm = ({ title, content = '', tags, action }: Props) => {
     <form action={action}>
       <input name="title" type="text" defaultValue={title} />
       <input name="tags" type="text" defaultValue={tags} />
-      <MarkDownForm defaultValue={value} setValue={setValue} />
+      <MarkDownField defaultValue={value} setValue={setValue} />
       <input name="content" type={'hidden'} value={value} />
       <button type="submit">Submit</button>
     </form>

@@ -8,7 +8,7 @@ type Props = {
   defaultValue?: string
   setValue: Dispatch<SetStateAction<string | undefined>>
 }
-const MarkDownForm = ({ defaultValue, setValue }: Props) => {
+const MarkDownField = ({ defaultValue, setValue }: Props) => {
   return (
     <div>
       <MDEditor value={defaultValue} onChange={setValue} preview={'live'} />
@@ -16,4 +16,4 @@ const MarkDownForm = ({ defaultValue, setValue }: Props) => {
   )
 }
 
-export default MarkDownForm
+export default MarkDownField
