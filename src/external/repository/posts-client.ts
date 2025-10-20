@@ -21,3 +21,19 @@ export const findPostsBySearch = async (search: string) => {
 
   return data
 }
+
+export const uploadImageToStorage = async (file: File) => {
+  const supabase = createClientForClient()
+
+  const { error } = await supabase.storage
+    .from('post-images')
+    .upload(`images/${file.name}`, file)
+
+  if (error) return alert('Failed uploading image')
+
+  const imageUrl = supabase.storage
+    .from('post-images')
+    .getPublicUrl(`images/${file.name}`).data.publicUrl
+
+  return imageUrl
+}
