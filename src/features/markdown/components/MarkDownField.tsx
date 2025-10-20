@@ -1,17 +1,23 @@
 'use client'
 
-import { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
 import MDEditor from '@uiw/react-md-editor'
 
 type Props = {
-  defaultValue?: string
+  value?: string
   setValue: Dispatch<SetStateAction<string | undefined>>
+  handleDrop: (e: React.DragEvent<HTMLDivElement>) => Promise<void>
 }
-const MarkDownField = ({ defaultValue, setValue }: Props) => {
+const MarkDownField = ({ value, setValue, handleDrop }: Props) => {
   return (
     <div>
-      <MDEditor value={defaultValue} onChange={setValue} preview={'live'} />
+      <MDEditor
+        value={value}
+        onChange={setValue}
+        preview={'live'}
+        onDrop={handleDrop}
+      />
     </div>
   )
 }
