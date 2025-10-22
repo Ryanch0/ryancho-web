@@ -1,8 +1,44 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin '@tailwindcss/typography';
 
-@plugin "@tailwindcss/typography";
+@theme {
+  --font-family-sans:
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-body {
-  font-family: 'Wotfard', 'Wotfard-fallback', sans-serif;
-  background-color: #6676;
+  --font-family-serif:
+    'Source Serif 4 Variable', ui-serif, Georgia, Cambria, 'Times New Roman',
+    Times, serif;
+
+  --color-background-dark: #121212;
+  --color-base-dark: #c7c7c7;
+  --color-accent-dark: #e6e6e6;
+
+  --color-background-light: #ffffff;
+  --color-base-light: #595959;
+  --color-accent-light: #121212;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-family-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-serif);
+  }
+}
+
+@utility layout {
+  @apply mx-auto w-full px-4 md:max-w-4xl md:px-6;
+}
+
+@utility hover-bg-invert {
+  @apply dark:hover:bg-background-light/10 hover:bg-background-dark/10;
 }

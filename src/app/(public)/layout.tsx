@@ -5,8 +5,10 @@ import Header from '@/shared/components/Header'
 export default function PublicLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <Header />
-      {children}
+      <main className="layout">
+        <Header />
+        {children}
+      </main>
     </>
   )
 }
