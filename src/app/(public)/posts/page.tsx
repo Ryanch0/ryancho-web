@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 
 import PostList from '@/features/posts/components/PostList'
 import TagList from '@/features/tags/components/TagList'
-import Hero from '@/shared/components/Hero'
+import MainLink from '@/shared/components/MainLink'
 import { SearchParams } from 'next/dist/server/request/search-params'
 
 type Props = {
@@ -13,10 +13,12 @@ const Page = async ({ searchParams }: Props) => {
   const tagName = typeof tag === 'string' ? tag : undefined
 
   return (
-    <>
-      <Hero>
-        <p className={'text-black'}>HERO SECTION</p>
-      </Hero>
+    <div className={'pt-18'}>
+      <h2 className={'title-style'}>Blog Archive</h2>
+      <div className={'second-font-style py-1'}>
+        <p>A space for storing insights</p>
+        <span>by</span> <MainLink />
+      </div>
       <main className={'flex justify-between'}>
         <Suspense fallback={'fetching post list...'}>
           <PostList tag={tagName} />
@@ -25,7 +27,7 @@ const Page = async ({ searchParams }: Props) => {
           <TagList />
         </Suspense>
       </main>
-    </>
+    </div>
   )
 }
 

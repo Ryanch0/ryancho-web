@@ -1,9 +1,10 @@
 import { PATH } from '@/constants/path'
+import { authCheckHandler } from '@/external/handler/auth/authHandler'
 import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
 import { findPostBySlug } from '@/external/repository/posts-server'
 import { deletePostAction } from '@/features/posts/actions/post'
 import PostDetail from '@/features/posts/components/PostDetail'
-import Hero from '@/shared/components/Hero'
+import MainLink from '@/shared/components/MainLink'
 import { Metadata } from 'next'
 import { NextParsedUrlQuery } from 'next/dist/server/request-meta'
 import Link from 'next/link'
@@ -37,22 +38,33 @@ const Page = async ({ params }: Props) => {
   }
 
   const data = await findPostBySlugHandler(slug)
+  const { isAuthorized } = await authCheckHandler()
 
   return (
-    <>
-      <Hero>
-        <h1>{data.title}</h1>
-        <p>Published {data.date}</p>
-        {data.last_modified && <p>Last updated {data.last_modified}</p>}
-        <Link href={`${PATH.WRITE}/${data.id}`}>Update</Link>
-        <form action={deletePostAction.bind(null, data.id)}>
-          <button type="submit">Delete</button>
-        </form>
+    <div className={'pt-18'}>
+      <h2 className={'title-style'}>{data.title}</h2>
+      <div className={'second-font-style py-1'}>
+        <p>{data.date}</p>
 
+        <div className={'flex gap-1'}>
+          <span>by</span> <MainLink />
+          {isAuthorized && (
+            <>
+              <Link className={'ml-auto'} href={`${PATH.WRITE}/${data.id}`}>
+                Update
+              </Link>
+              <form action={deletePostAction.bind(null, data.id)}>
+                <button type="submit">Delete</button>
+              </form>
+            </>
+          )}
+        </div>
+      </div>
+      <div>
         <p>Tags: {data.tags}</p>
-      </Hero>
+      </div>
       <PostDetail content={data.content} />
-    </>
+    </div>
   )
 }
 

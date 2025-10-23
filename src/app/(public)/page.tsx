@@ -4,9 +4,7 @@ import LinkIcon from '@/shared/components/LinkIcon'
 const Page = () => {
   return (
     <div className={'pt-18'}>
-      <h2 className={'text-accent-light dark:text-accent-dark pb-8 text-2xl'}>
-        Ryan Cho
-      </h2>
+      <h2 className={'title-style pb-8'}>Ryan Cho</h2>
       <p className={'text-2xl font-light'}>
         Building worlds from semicolons and dreams, where structure embraces
         spontaneity. Driven by exploration, shaping solutions that blur the line

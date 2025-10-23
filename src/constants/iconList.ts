@@ -11,12 +11,12 @@ export const ICON_LIST = [
   {
     id: 'linkedin',
     icon: FaLinkedinIn,
-    href: 'https://www.linkedin.com/in/ryanch0'
+    href: 'https://www.linkedin.com/#'
   },
   {
     id: 'instagram',
     icon: FaInstagram,
-    href: 'https://www.instagram.com/ryanch0'
+    href: 'https://www.instagram.com/sksQnsks'
   },
-  { id: 'twitter', icon: FaTwitter, href: 'https://twitter.com/ryanch0' }
+  { id: 'twitter', icon: FaTwitter, href: '#' }
 ]

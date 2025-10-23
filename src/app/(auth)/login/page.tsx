@@ -10,8 +10,8 @@ const Page = async ({ searchParams }: Props) => {
   const redirectUrl = typeof redirect === 'string' ? redirect : undefined
 
   return (
-    <div>
-      <h1>Admin Login</h1>
+    <div className={'pt-18'}>
+      <h2 className={'title-style pb-8'}>Admin Login</h2>
       <LoginForm action={signInAction} redirectUrl={redirectUrl} />
     </div>
   )

@@ -5,7 +5,7 @@ import './globals.css'
 import { PropsWithChildren } from 'react'
 
 import Providers from '@/shared/components/Providers'
-import { Inter, Source_Serif_4 } from 'next/font/google'
+import { Inter, Newsreader, Source_Serif_4 } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -24,14 +24,21 @@ const inter = Inter({
   variable: '--font-inter'
 })
 
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'], // 필요한 weight만 선택
+  display: 'swap',
+  variable: '--font-newsreader'
+})
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sourceSerif.variable} ${inter.variable}`}
+      className={`${sourceSerif.variable} ${inter.variable} ${newsreader.variable}`}
     >
-      <body className="bg-background-light dark:bg-background-dark text-base-light dark:text-base-dark pt-11">
+      <body className="bg-background-light dark:bg-background-dark base-font-style pt-11 transition-colors duration-300">
         <Providers>{children}</Providers>
       </body>
     </html>

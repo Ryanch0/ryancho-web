@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { CiSearch } from 'react-icons/ci'
 
 import SearchModal from '@/features/search/components/SearchModal'
 
@@ -10,10 +11,15 @@ const SearchModalTrigger = () => {
   const onClose = () => setIsOpen(false)
 
   return (
-    <div>
-      <button onClick={openModal}>Search</button>
+    <>
+      <button onClick={openModal}>
+        <CiSearch
+          size={38}
+          className={'cursor-pointer p-1.5 hover:opacity-70'}
+        />
+      </button>
       <SearchModal isOpen={isOpen} onClose={onClose} />
-    </div>
+    </>
   )
 }
 

@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
+
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin '@tailwindcss/typography';
 
@@ -11,12 +13,17 @@
     'Source Serif 4 Variable', ui-serif, Georgia, Cambria, 'Times New Roman',
     Times, serif;
 
+  --font-family-fancy:
+    'Newsreader', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
   --color-background-dark: #121212;
   --color-base-dark: #c7c7c7;
+  --color-second-dark: #b0b0b0;
   --color-accent-dark: #e6e6e6;
 
   --color-background-light: #ffffff;
   --color-base-light: #595959;
+  --color-second-light: #464646;
   --color-accent-light: #121212;
 }
 
@@ -41,4 +48,20 @@
 
 @utility hover-bg-invert {
   @apply dark:hover:bg-background-light/10 hover:bg-background-dark/10;
+}
+
+@utility icon-default-style {
+  @apply cursor-pointer rounded-md p-1.5;
+}
+
+@utility title-style {
+  @apply text-accent-light dark:text-accent-dark text-2xl;
+}
+
+@utility base-font-style {
+  @apply text-base-light dark:text-base-dark;
+}
+
+@utility second-font-style {
+  @apply text-second-light dark:text-second-dark opacity-80;
 }

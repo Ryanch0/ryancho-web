@@ -6,13 +6,10 @@ type Props = {
   icon: IconType
 }
 
-const LinkIcon = ({ size = 18, href, icon: Icon }: Props) => {
+const LinkIcon = ({ size = 30, href, icon: Icon }: Props) => {
   return (
     <a href={href} target="_blank">
-      <Icon
-        size={size}
-        className={'hover-bg-invert box-content rounded-md p-1.5'}
-      />
+      <Icon size={size} className={'hover-bg-invert icon-default-style'} />
     </a>
   )
 }
