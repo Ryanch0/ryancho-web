@@ -1,4 +1,5 @@
 import { FaUserShield } from 'react-icons/fa'
+import { IoAddOutline } from 'react-icons/io5'
 
 import { PATH } from '@/constants/path'
 import { authCheckHandler } from '@/external/handler/auth/authHandler'
@@ -10,12 +11,17 @@ import Link from 'next/link'
 const Header = async () => {
   const { isAuthorized } = await authCheckHandler()
   const authLink = isAuthorized ? (
-    <HeaderActiveLink href={PATH.WRITE}>Create Post</HeaderActiveLink>
+    <Link href={PATH.WRITE}>
+      <IoAddOutline
+        size={38}
+        className={'cursor-pointer p-1.5 transition-transform hover:scale-110'}
+      />
+    </Link>
   ) : (
     <Link href={PATH.LOGIN}>
       <FaUserShield
         size={38}
-        className={'cursor-pointer p-1.5 hover:opacity-70'}
+        className={'cursor-pointer p-1.5 transition-transform hover:scale-110'}
       />
     </Link>
   )

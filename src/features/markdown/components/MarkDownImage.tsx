@@ -16,10 +16,10 @@ const MarkDownImage = ({ src, alt = '', width = 800, height = 0 }: Props) => {
       width={width}
       height={height}
       style={{
-        maxWidth: '100%',
+        maxWidth: '700px',
         width: '100%',
         height: 'auto',
-        maxHeight: '600px',
+        maxHeight: '500px',
         objectFit: 'contain'
       }}
     />

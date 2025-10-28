@@ -45,24 +45,35 @@ const Page = async ({ params }: Props) => {
       <h2 className={'title-style'}>{data.title}</h2>
       <div className={'second-font-style py-1'}>
         <p>{data.date}</p>
-
+        <span>by</span> <MainLink />
+      </div>
+      <div className="mt-1 flex gap-2 text-sm">
+        {data.tags?.map((tag) => {
+          return (
+            <span
+              key={tag}
+              className="bg-section-light dark:bg-section-dark text-second-light dark:text-second-dark rounded-sm px-2 py-0.5"
+            >
+              {tag}
+            </span>
+          )
+        })}
+      </div>
+      {isAuthorized && (
         <div className={'flex gap-1'}>
-          <span>by</span> <MainLink />
-          {isAuthorized && (
-            <>
-              <Link className={'ml-auto'} href={`${PATH.WRITE}/${data.id}`}>
-                Update
-              </Link>
-              <form action={deletePostAction.bind(null, data.id)}>
-                <button type="submit">Delete</button>
-              </form>
-            </>
-          )}
+          <Link
+            className={'ml-auto hover:opacity-70'}
+            href={`${PATH.WRITE}/${data.id}`}
+          >
+            Update
+          </Link>
+          <form action={deletePostAction.bind(null, data.id)}>
+            <button type="submit" className={'cursor-pointer hover:opacity-70'}>
+              Delete
+            </button>
+          </form>
         </div>
-      </div>
-      <div>
-        <p>Tags: {data.tags}</p>
-      </div>
+      )}
       <PostDetail content={data.content} />
     </div>
   )

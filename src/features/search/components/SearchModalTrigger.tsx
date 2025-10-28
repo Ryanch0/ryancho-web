@@ -15,7 +15,9 @@ const SearchModalTrigger = () => {
       <button onClick={openModal}>
         <CiSearch
           size={38}
-          className={'cursor-pointer p-1.5 hover:opacity-70'}
+          className={
+            'cursor-pointer p-1.5 transition-transform hover:scale-110'
+          }
         />
       </button>
       <SearchModal isOpen={isOpen} onClose={onClose} />

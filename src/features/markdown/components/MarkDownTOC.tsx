@@ -12,7 +12,10 @@ const MarkDownTOC = () => {
       {toc.map(({ key, value, headTag }) => {
         return (
           <li key={`${headTag}-${key}`}>
-            <Link href={`#${key}`} className={'text-blue-500'}>
+            <Link
+              href={`#${key}`}
+              className={'text-base-light dark:text-base-dark'}
+            >
               {value}
             </Link>
           </li>

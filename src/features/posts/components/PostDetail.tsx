@@ -9,7 +9,7 @@ const PostDetail = ({ content }: Props) => {
   const components = renderMdxComponents()
 
   return (
-    <div className="prose">
+    <div className="prose prose-custom mt-16 max-w-3xl">
       <MDXRemote source={content} components={components} />
       <MarkDownTOC />
     </div>

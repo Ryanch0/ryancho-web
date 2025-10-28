@@ -14,7 +14,7 @@ const HeaderActiveLink = ({ children, href, className }: Props) => {
   const pathname = usePathname()
   const isActive = href === pathname
   const activeClassName = isActive
-    ? 'inline-block  decoration-0 underline-offset-5 underline'
+    ? 'decoration-1 decoration-underline-light dark:decoration-underline-dark underline-offset-4 underline'
     : ''
 
   return (
