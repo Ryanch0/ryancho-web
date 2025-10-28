@@ -16,7 +16,7 @@ const SearchModalTrigger = () => {
         <CiSearch
           size={38}
           className={
-            'cursor-pointer p-1.5 transition-transform duration-500 ease-out hover:scale-110'
+            'cursor-pointer p-1.5 transition-transform duration-400 ease-out hover:scale-110'
           }
         />
       </button>
