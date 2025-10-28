@@ -2,7 +2,7 @@ import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
 import { MdAlternateEmail } from 'react-icons/md'
 
 export const ICON_LIST = [
-  { id: 'email', href: 'mailto:tjddnfkdls0@gmail.com', icon: MdAlternateEmail },
+  { id: 'email', href: 'mailto:ryan@ryanch0.dev', icon: MdAlternateEmail },
   {
     id: 'github',
     icon: FaGithub,
