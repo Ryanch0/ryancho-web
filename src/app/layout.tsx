@@ -36,6 +36,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${sourceSerif.variable} ${inter.variable} ${newsreader.variable} `}
     >
       <body className="bg-background-light dark:bg-background-dark base-font-style pt-11 transition-colors duration-300">

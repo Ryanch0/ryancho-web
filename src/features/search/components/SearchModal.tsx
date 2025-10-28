@@ -7,7 +7,12 @@ import {
   CommandItem,
   CommandList
 } from '@/components/ui/command'
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle
+} from '@/components/ui/dialog'
 import useSearchModalUseCase from '@/features/search/hooks/usecases/useSearchModalUseCase'
 
 type Props = {
@@ -68,6 +73,7 @@ const SearchModal = ({ isOpen, onClose }: Props) => {
     <Dialog open={isOpen} onOpenChange={onCloseModal}>
       <DialogContent className="w-[640px] gap-0 border-0 p-0 shadow-lg">
         <DialogTitle className="sr-only">Search Posts</DialogTitle>
+        <DialogDescription className="sr-only">Search Posts</DialogDescription>
         <Command
           shouldFilter={false}
           className="h-[350px] rounded-lg p-2 md:h-[450px]"
