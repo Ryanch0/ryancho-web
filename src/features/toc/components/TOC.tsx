@@ -4,12 +4,15 @@ import useMarkDownToc from '@/features/markdown/hooks/useMarkDownToc'
 import useTocScrollEffect from '@/features/posts/hooks/useTocScrollEffect'
 import Link from 'next/link'
 
-const MarkDownTOC = () => {
+type Props = {
+  isMobile?: boolean
+}
+const TOC = ({ isMobile = false }: Props) => {
   const { toc } = useMarkDownToc()
-  useTocScrollEffect()
+  useTocScrollEffect(isMobile)
 
   return (
-    <ul id={'toc'}>
+    <ul id={isMobile ? 'toc-mobile' : 'toc-desktop'}>
       {toc.map(({ key, value, headTag }) => {
         return (
           <li
@@ -34,4 +37,4 @@ const MarkDownTOC = () => {
   )
 }
 
-export default MarkDownTOC
+export default TOC

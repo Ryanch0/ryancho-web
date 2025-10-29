@@ -57,7 +57,8 @@
   }
 }
 
-#toc a.active {
+#toc-mobile a.active,
+#toc-desktop a.active {
   @apply text-accent-light dark:text-accent-dark transition-colors;
 }
 [data-markdown-head] {

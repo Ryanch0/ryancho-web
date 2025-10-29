@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
 
-const useTocScrollEffect = () => {
+const useTocScrollEffect = (isMobile = false) => {
   return useEffect(() => {
-    const allSections = Array.from(
-      document.querySelectorAll('[data-markdown-head]')
-    ) as HTMLElement[]
-
+    const tocId = isMobile ? 'toc-mobile' : 'toc-desktop'
     const headerHeight = 80
     const ticking = { current: false }
 
     const updateActiveLink = () => {
+      const allSections = Array.from(
+        document.querySelectorAll('[data-markdown-head]')
+      ) as HTMLElement[]
+
+      if (allSections.length === 0) return
+
       const scrollY = window.scrollY + headerHeight + 10
 
       const currentSection = allSections
@@ -19,15 +22,20 @@ const useTocScrollEffect = () => {
       if (!currentSection) return
 
       const id = currentSection.getAttribute('id')
-      const tocLink = document.querySelector(`a[href="#${id}"][data-toc-link]`)
+
+      const tocLink = document.querySelector(
+        `#${tocId} a[href="#${id}"][data-toc-link]`
+      )
 
       if (!tocLink) return
 
       if (tocLink.classList.contains('active')) return
 
-      document.querySelectorAll('a[data-toc-link]').forEach((link) => {
-        link.classList.remove('active')
-      })
+      document
+        .querySelectorAll(`#${tocId} a[data-toc-link]`)
+        .forEach((link) => {
+          link.classList.remove('active')
+        })
       tocLink.classList.add('active')
     }
 
@@ -41,14 +49,17 @@ const useTocScrollEffect = () => {
       }
     }
 
-    updateActiveLink()
+    const timer = setTimeout(() => {
+      updateActiveLink()
+    }, 100)
 
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
+      clearTimeout(timer)
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [isMobile])
 }
 
 export default useTocScrollEffect
