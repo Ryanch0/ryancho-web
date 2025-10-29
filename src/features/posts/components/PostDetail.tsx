@@ -1,16 +1,18 @@
 import renderMdxComponents from '@/features/markdown/components/renderMdxComponents'
+import PostDetailWrapper from '@/features/posts/components/PostDetailWrapper'
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 
 type Props = {
   content: string
+  title: string
 }
-const PostDetail = ({ content }: Props) => {
+const PostDetail = ({ content, title }: Props) => {
   const components = renderMdxComponents()
 
   return (
-    <div className="prose prose-custom mt-16 max-w-3xl">
+    <PostDetailWrapper title={title}>
       <MDXRemote source={content} components={components} />
-    </div>
+    </PostDetailWrapper>
   )
 }
 
