@@ -2,7 +2,6 @@ import { PATH } from '@/constants/path'
 import { authCheckHandler } from '@/external/handler/auth/authHandler'
 import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
 import { findPostBySlug } from '@/external/repository/posts-server'
-import MarkDownTOC from '@/features/markdown/components/MarkDownTOC'
 import { deletePostAction } from '@/features/posts/actions/post'
 import PostDetail from '@/features/posts/components/PostDetail'
 import MainLink from '@/shared/components/MainLink'
@@ -75,14 +74,7 @@ const Page = async ({ params }: Props) => {
           </form>
         </div>
       )}
-      <PostDetail content={data.content} />
-      <aside
-        className={
-          'fixed top-[30%] right-6 block opacity-0 min-[1400px]:right-[5%] xl:opacity-100 2xl:right-[10%]'
-        }
-      >
-        <MarkDownTOC />
-      </aside>
+      <PostDetail content={data.content} title={data.title} />
     </div>
   )
 }
