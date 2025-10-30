@@ -3,6 +3,7 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react'
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 
+import CircularScrollProgress from '@/features/toc/components/CircularProgressBar'
 import { motion } from 'framer-motion'
 
 type Props = {
@@ -55,6 +56,7 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
             ref={titleRef}
             className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden"
           >
+            <CircularScrollProgress />
             <h2 className="text-accent-light dark:text-accent-dark truncate text-lg">
               {title}
             </h2>
