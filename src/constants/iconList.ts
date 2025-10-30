@@ -1,22 +1,24 @@
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
 import { MdAlternateEmail } from 'react-icons/md'
 
+import { EXTERNAL_URL } from '@/constants/path'
+
 export const ICON_LIST = [
-  { id: 'email', href: 'mailto:ryan@ryanch0.dev', icon: MdAlternateEmail },
+  { id: 'email', href: `mailto:${EXTERNAL_URL.EMAIL}`, icon: MdAlternateEmail },
   {
     id: 'github',
     icon: FaGithub,
-    href: 'https://github.com/Ryanch0'
+    href: EXTERNAL_URL.GITHUB
   },
   {
     id: 'linkedin',
     icon: FaLinkedinIn,
-    href: 'https://www.linkedin.com/#'
+    href: EXTERNAL_URL.LINKEDIN
   },
   {
     id: 'instagram',
     icon: FaInstagram,
-    href: 'https://www.instagram.com/sksQnsks'
+    href: EXTERNAL_URL.INSTAGRAM
   },
-  { id: 'twitter', icon: FaTwitter, href: '#' }
+  { id: 'twitter', icon: FaTwitter, href: EXTERNAL_URL.TWITTER }
 ]
