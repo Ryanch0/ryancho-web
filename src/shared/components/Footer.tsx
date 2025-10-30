@@ -8,12 +8,14 @@ const Footer = () => {
     >
       <div>
         Copyright ©
-        <MainLink title={<h2>Ryan Cho</h2>} />
+        <MainLink
+          title={<p className={'font-family-serif !text-base'}>Ryan Cho</p>}
+        />
       </div>
 
       <MainLink
         className={'italic'}
-        title={<h2>Source Code</h2>}
+        title={<p className={'font-family-serif !text-base'}>Source Code</p>}
         href={EXTERNAL_URL.SOURCE_CODE}
         rel={'noopener noreferrer'}
         target={'_blank'}

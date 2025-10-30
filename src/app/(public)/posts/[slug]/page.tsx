@@ -26,6 +26,7 @@ export const generateMetadata = async ({
   const data = await findPostBySlug(slug)
 
   return {
+    title: data.title,
     description: data?.meta_description
   }
 }

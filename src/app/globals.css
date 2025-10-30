@@ -13,8 +13,7 @@
     'Source Serif 4 Variable', ui-serif, Georgia, Cambria, 'Times New Roman',
     Times, serif;
 
-  --font-family-fancy:
-    'Newsreader', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-family-arita: 'Arita Buri', 'Source Serif 4 Variable', ui-serif;
 
   --color-background-dark: #121212;
   --color-base-dark: #c7c7c7;
@@ -53,7 +52,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-family-serif);
+    font-family: var(--font-family-arita);
   }
 }
 
@@ -61,6 +60,7 @@
 #toc-desktop a.active {
   @apply text-accent-light dark:text-accent-dark transition-colors;
 }
+
 [data-markdown-head] {
   scroll-margin-top: 80px;
 }
