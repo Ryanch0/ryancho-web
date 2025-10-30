@@ -8,6 +8,7 @@ const Page = () => {
         <p>Who I am and what I do</p>
         <span>by</span> <MainLink />
       </div>
+      <main className={'layout-content'}></main>
     </div>
   )
 }

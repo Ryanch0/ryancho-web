@@ -21,7 +21,7 @@ const Page = async ({ searchParams }: Props) => {
         <p>A space for storing insights</p>
         <span>by</span> <MainLink />
       </div>
-      <main className={'mt-6 flex flex-col'}>
+      <main className={'layout-content'}>
         <Suspense fallback={<TagListSkeleton />}>
           <TagList />
         </Suspense>
