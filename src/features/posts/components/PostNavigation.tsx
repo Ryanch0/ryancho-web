@@ -1,11 +1,14 @@
 type Props = {
-  previousPost?: { slug: string; title: string }
-  nextPost?: { slug: string; title: string }
+  previousPost: { slug?: string; title?: string }
+  nextPost: { slug?: string; title?: string }
 }
 const PostNavigation = ({ previousPost, nextPost }: Props) => {
+  const hasPrevPost = previousPost.slug && previousPost.title
+  const hasNextPost = nextPost.slug && nextPost.title
+
   return (
     <section className="mt-16 mb-12 flex items-stretch justify-between gap-1 text-lg">
-      {previousPost && (
+      {hasPrevPost && (
         <a
           className="group flex flex-col gap-1"
           href={`/posts/${previousPost.slug}`}
@@ -19,7 +22,7 @@ const PostNavigation = ({ previousPost, nextPost }: Props) => {
         </a>
       )}
 
-      {nextPost && (
+      {hasNextPost && (
         <a
           className="group text-second hover:text-body ml-auto flex flex-col gap-1 text-right"
           href={`/posts/${nextPost.slug}`}

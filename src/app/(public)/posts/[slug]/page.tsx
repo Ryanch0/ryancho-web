@@ -1,6 +1,9 @@
 import { PATH } from '@/constants/path'
 import { authCheckHandler } from '@/external/handler/auth/authHandler'
-import { findPostBySlugHandler } from '@/external/handler/posts/postsHandler'
+import {
+  findPostBySlugHandler,
+  getPreviousNextPostHandler
+} from '@/external/handler/posts/postsHandler'
 import { findPostBySlug } from '@/external/repository/posts-server'
 import { deletePostAction } from '@/features/posts/actions/post'
 import PostDetail from '@/features/posts/components/PostDetail'
@@ -40,8 +43,11 @@ const Page = async ({ params }: Props) => {
     notFound()
   }
 
-  const data = await findPostBySlugHandler(slug)
   const { isAuthorized } = await authCheckHandler()
+  const data = await findPostBySlugHandler(slug)
+  const { prev, next } = await getPreviousNextPostHandler(data.raw_date)
+
+  console.log(data.raw_date)
 
   return (
     <div className={'flex flex-col pt-18'}>
@@ -85,12 +91,12 @@ const Page = async ({ params }: Props) => {
       </div>
       <PostNavigation
         previousPost={{
-          slug: 'redesign-blog',
-          title: 'Redesigning My Blog'
+          slug: prev.slug,
+          title: prev.title
         }}
         nextPost={{
-          slug: 'svelte-compiler-operation',
-          title: 'How Does the Svelte Compiler Work?'
+          slug: next.slug,
+          title: next.title
         }}
       />
       <Footer />

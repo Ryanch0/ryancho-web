@@ -124,3 +124,38 @@ export const deletePost = async (id: string) => {
     throw new Error('Failed to delete post.')
   }
 }
+
+export const getPreviousPost = async (date: string) => {
+  const supabase = await createClientForServer()
+  const { data, error } = await supabase
+    .from('posts')
+    .select('slug, title')
+    .lt('date', date)
+    .order('date', { ascending: false })
+    .limit(1)
+  const prevData = data && data.length > 0 ? data[0] : null
+
+  if (error) {
+    throw new Error('Failed to get previous post.')
+  }
+
+  return { slug: prevData?.slug, title: prevData?.title }
+}
+
+export const getNextPost = async (date: string) => {
+  const supabase = await createClientForServer()
+  const { data, error } = await supabase
+    .from('posts')
+    .select('slug, title')
+    .gt('date', date)
+    .order('date', { ascending: true })
+    .limit(1)
+
+  const nextData = data && data.length > 0 ? data[0] : null
+
+  if (error) {
+    throw new Error('Failed to get next post.')
+  }
+
+  return { slug: nextData?.slug, title: nextData?.title }
+}

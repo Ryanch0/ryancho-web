@@ -6,6 +6,8 @@ import {
   findPostById,
   findPostBySlug,
   findPostsByTag,
+  getNextPost,
+  getPreviousPost,
   updatePost
 } from '@/external/repository/posts-server'
 import {
@@ -29,9 +31,12 @@ export const listPostByTag = async (tag: string): Promise<PostListItem[]> => {
   return await findPostsByTag(tag)
 }
 
-export const findPostBySlugHandler = async (slug: string): Promise<Post> => {
+export const findPostBySlugHandler = async (
+  slug: string
+): Promise<Post & { raw_date: string }> => {
   const result = await findPostBySlug(slug)
 
+  const raw_date = result.date
   const formattedDate = formatLongDate(result.date)
   const getFormattedLastModified = () => {
     if (!result.last_modified) return
@@ -41,6 +46,7 @@ export const findPostBySlugHandler = async (slug: string): Promise<Post> => {
 
   return {
     ...result,
+    raw_date,
     date: formattedDate,
     last_modified: getFormattedLastModified()
   }
@@ -93,4 +99,11 @@ export const updatePostHandler = async (
 
 export const deletePostHandler = async (id: string) => {
   return await deletePost(id)
+}
+
+export const getPreviousNextPostHandler = async (date: string) => {
+  const prev = await getPreviousPost(date)
+  const next = await getNextPost(date)
+
+  return { prev, next }
 }
