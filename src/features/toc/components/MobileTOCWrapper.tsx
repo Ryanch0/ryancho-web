@@ -20,7 +20,9 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
   const getWidth = () => {
     if (isOpen) return 'min(300px, calc(100vw - 2rem))'
 
-    if (titleWidth) return `${titleWidth}px`
+    if (titleWidth) {
+      return `min(${titleWidth}px, min(calc(100vw - 2rem), 300px))`
+    }
 
     return 'auto'
   }
@@ -35,7 +37,7 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
     <motion.div
       className="fixed left-1/2 z-40 -translate-x-1/2"
       animate={{
-        top: isVisible ? '3.5rem' : '-20rem'
+        top: isVisible ? '3.5rem' : '-30rem'
       }}
       initial={{ top: '-5rem' }}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
@@ -46,7 +48,7 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
           borderRadius: isOpen ? 16 : 24
         }}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
-        className={`${isOpen ? 'pt-1' : ''} relative overflow-hidden bg-white/75 shadow-lg backdrop-blur-2xl backdrop-saturate-[1.2] transition-colors select-none dark:bg-zinc-500/20`}
+        className={`${isOpen ? 'pt-1' : ''} relative overflow-hidden bg-white/75 shadow-lg backdrop-blur-2xl backdrop-saturate-[1.2] transition-all select-none dark:bg-zinc-500/20`}
       >
         <button
           className="flex w-full cursor-pointer items-center justify-between gap-3 px-3 py-1"
