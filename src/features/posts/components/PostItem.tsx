@@ -8,10 +8,11 @@ import Link from 'next/link'
 type Props = {
   preview: string
   title: ReactNode
+  subtitle: ReactNode
   slug: string
   date: string
 }
-const PostItem = ({ title, slug, date }: Props) => {
+const PostItem = ({ title, slug, date, subtitle }: Props) => {
   const { day, month } = getDateParts(date)
 
   return (
@@ -23,10 +24,19 @@ const PostItem = ({ title, slug, date }: Props) => {
       <Link href={`${PATH.POSTS}/${slug}`} className={'rounded-lg'}>
         <div className={`w-full ${groupHoverStyles.post}`}>
           <div className={'flex items-center justify-between'}>
-            <h4 className={'mt-1 text-lg'}>
-              <span>{title}</span>
-            </h4>
-            <time>{`${month}. ${day}.`}</time>
+            <div>
+              <h4 className={'mt-1 text-lg'}>
+                <span>{title}</span>
+              </h4>
+              <p
+                className={'text-[0.94rem] text-[#999999] dark:text-[#808080]'}
+              >
+                {subtitle}
+              </p>
+            </div>
+            <time
+              className={'text-[0.94rem] text-[#999999] dark:text-[#808080]'}
+            >{`${month}. ${day}.`}</time>
           </div>
         </div>
       </Link>

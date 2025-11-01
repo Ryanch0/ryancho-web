@@ -147,6 +147,34 @@
   }
 }
 
+/* MD EDITOR*/
+.w-md-editor {
+  background-color: #1e1e1e !important;
+}
+
+.w-md-editor-text {
+  height: 100% !important;
+}
+
+.w-md-editor-text-input {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 18px !important;
+}
+
+.w-md-editor-toolbar {
+  background-color: #2d2d2d !important;
+}
+
+.w-md-editor-preview {
+  background-color: #1e1e1e !important;
+}
+
+.w-md-editor-content {
+  background-color: #1e1e1e !important;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

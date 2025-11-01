@@ -22,13 +22,13 @@ const PostDetailWrapper = ({ title, children }: Props) => {
       </div>
       <aside
         className={
-          'fixed top-[30%] right-6 block opacity-0 min-[1400px]:right-[5%] xl:opacity-100 2xl:right-[10%]'
+          'fixed top-[30%] right-6 hidden min-[1400px]:right-[5%] xl:block 2xl:right-[10%]'
         }
       >
         <TOC />
       </aside>
 
-      <div className={'opacity-100 xl:opacity-0'}>
+      <div className={'block xl:hidden'}>
         <MobileTOCWrapper title={title} isVisible={isContentVisible}>
           <TOC isMobile />
         </MobileTOCWrapper>

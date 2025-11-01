@@ -5,7 +5,7 @@ import {
   getPreviousNextPostHandler
 } from '@/external/handler/posts/postsHandler'
 import { findPostBySlug } from '@/external/repository/posts-server'
-import { deletePostAction } from '@/features/posts/actions/post'
+import PostDeleteButton from '@/features/posts/components/PostDeleteButton'
 import PostDetail from '@/features/posts/components/PostDetail'
 import PostNavigation from '@/features/posts/components/PostNavigation'
 import Footer from '@/shared/components/Footer'
@@ -47,8 +47,6 @@ const Page = async ({ params }: Props) => {
   const data = await findPostBySlugHandler(slug)
   const { prev, next } = await getPreviousNextPostHandler(data.raw_date)
 
-  console.log(data.raw_date)
-
   return (
     <div className={'flex flex-col pt-18'}>
       <div>
@@ -70,21 +68,14 @@ const Page = async ({ params }: Props) => {
           })}
         </div>
         {isAuthorized && (
-          <div className={'flex gap-1'}>
+          <div className={'flex gap-2'}>
             <Link
               className={'ml-auto hover:opacity-70'}
               href={`${PATH.WRITE}/${data.id}`}
             >
               Update
             </Link>
-            <form action={deletePostAction.bind(null, data.id)}>
-              <button
-                type="submit"
-                className={'cursor-pointer hover:opacity-70'}
-              >
-                Delete
-              </button>
-            </form>
+            <PostDeleteButton id={data.id} />
           </div>
         )}
         <PostDetail content={data.content} title={data.title} />

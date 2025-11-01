@@ -13,9 +13,10 @@ const MarkDownField = ({ value, setValue, handleDrop }: Props) => {
   return (
     <div>
       <MDEditor
+        className={'!h-[calc(100vh-220px)]'}
         value={value}
         onChange={setValue}
-        preview={'live'}
+        preview={'edit'}
         onDrop={handleDrop}
       />
     </div>
