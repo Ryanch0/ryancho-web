@@ -8,9 +8,16 @@ const Page = () => {
       <div>
         <h2 className={'title-style pb-6'}>Ryan Cho</h2>
         <h4 className={'text-second-light dark:text-second-dark text-[1.3rem]'}>
-          Building worlds from semicolons and dreams, where structure embraces
-          spontaneity. Driven by exploration, shaping solutions that blur the
-          line between thought and action.
+          Building with semicolons and vision, I search for{' '}
+          <strong className={'text-accent-light dark:text-accent-dark'}>
+            alternatives
+          </strong>{' '}
+          when others see dead ends. Structure and spontaneity converge
+          here—where exploration transforms obstacles into{' '}
+          <strong className={'text-accent-light dark:text-accent-dark'}>
+            elegant solutions
+          </strong>
+          .
         </h4>
 
         <h4 className="text-second-light dark:text-second-dark pt-6 text-[1.3rem]">
