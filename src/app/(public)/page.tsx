@@ -13,23 +13,16 @@ const Page = () => {
           }
         >
           Building with semicolons and vision, I search for{' '}
-          <strong className={'text-accent-light dark:text-accent-dark'}>
-            alternatives
-          </strong>{' '}
-          when others see dead ends. Structure and spontaneity converge
-          here—where exploration transforms obstacles into{' '}
-          <strong className={'text-accent-light dark:text-accent-dark'}>
-            elegant solutions
-          </strong>
-          .
+          <strong className={'accent-font-style'}>alternatives</strong> when
+          others see dead ends. Structure and spontaneity converge here—where
+          exploration transforms obstacles into{' '}
+          <strong className={'accent-font-style'}>elegant solutions</strong>.
         </h4>
 
         <h4 className="home-sub-description text-second-light dark:text-second-dark pt-6 text-[1.3rem]">
           Currently work at{' '}
-          <strong className={'text-accent-light dark:text-accent-dark'}>
-            Naver Financial
-          </strong>{' '}
-          as a frontend developer, crafting seamless user experiences.
+          <strong className={'accent-font-style'}>Naver Financial</strong> as a
+          frontend developer, crafting seamless user experiences.
         </h4>
 
         <ul className={'home-links flex pt-2'}>

@@ -16,7 +16,7 @@ const PostNavigation = ({ previousPost, nextPost }: Props) => {
           <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors">
             Previous
           </div>
-          <span className="text-accent-light dark:text-accent-dark group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
+          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
             {previousPost.title}
           </span>
         </a>
@@ -30,7 +30,7 @@ const PostNavigation = ({ previousPost, nextPost }: Props) => {
           <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors">
             Next
           </div>
-          <span className="text-accent-light dark:text-accent-dark group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
+          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
             {nextPost.title}
           </span>
         </a>

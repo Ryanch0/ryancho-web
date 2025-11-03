@@ -58,10 +58,7 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
             <div className="flex-shrink-0">
               <CircularScrollProgress />
             </div>
-            <h2
-              ref={titleRef}
-              className="text-accent-light dark:text-accent-dark truncate text-lg"
-            >
+            <h2 ref={titleRef} className="accent-font-style truncate text-lg">
               {title}
             </h2>
           </div>

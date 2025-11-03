@@ -100,12 +100,20 @@
   @apply text-accent-light dark:text-accent-dark text-2xl;
 }
 
+@utility accent-font-style {
+  @apply text-accent-light dark:text-accent-dark;
+}
+
 @utility base-font-style {
   @apply text-base-light dark:text-base-dark;
 }
 
 @utility second-font-style {
   @apply text-second-light dark:text-second-dark opacity-80;
+}
+
+@utility bullet {
+  @apply relative pl-3 before:absolute before:left-0 before:text-sm before:text-[#999999] before:content-['•'];
 }
 
 @utility prose-custom {
@@ -139,6 +147,7 @@
   & ol {
     @apply list-none;
   }
+
   & li {
     @apply text-base-light dark:text-base-dark leading-relaxed;
   }
