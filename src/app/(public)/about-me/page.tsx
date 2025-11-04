@@ -1,5 +1,6 @@
 import { EXTERNAL_URL } from '@/constants/path'
 import Education from '@/features/about/components/Education'
+import Languages from '@/features/about/components/Languages'
 import Projects from '@/features/about/components/Projects'
 import Skills from '@/features/about/components/Skills'
 import Footer from '@/shared/components/Footer'
@@ -42,6 +43,7 @@ const Page = () => {
           <div className={'pt-4'}>
             <Projects />
             <Skills />
+            <Languages />
             <Education />
           </div>
         </main>
