@@ -35,7 +35,6 @@ export const generatePreview = (
 }
 
 export const generateTags = (tagsString: string) => {
-  //TODO tags를 string[]로 변환 (쉼표로 구분된 문자열 가정)
   return tagsString
     .split(',')
     .map((tag) => tag.trim())

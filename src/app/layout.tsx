@@ -11,7 +11,7 @@ import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
   title: 'Ryan Cho',
-  description: '' //TODO Description
+  description: 'Frontend engineer Ryan Cho’s personal website.'
 }
 
 const sourceSerif = Source_Serif_4({
