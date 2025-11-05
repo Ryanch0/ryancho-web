@@ -251,19 +251,26 @@
 }
 
 .home-name {
-  animation: fade-slide-up 0.5s ease-out 0s backwards;
+  animation: fade-slide-up 0.5s ease-out 0s both;
 }
 
 .home-description {
-  animation: fade-slide-up 0.5s ease-out 0.1s backwards;
+  animation: fade-slide-up 0.5s ease-out 0.1s both;
 }
 
 .home-sub-description {
-  animation: fade-slide-up 0.5s ease-out 0.2s backwards;
+  animation: fade-slide-up 0.5s ease-out 0.2s both;
 }
 
 .home-links {
-  animation: fade-slide-up 0.5s ease-out 0.3s backwards;
+  animation: fade-slide-up 0.5s ease-out 0.3s both;
+}
+
+.home-name,
+.home-description,
+.home-sub-description,
+.home-links {
+  opacity: 0;
 }
 
 @keyframes fade-slide-up {

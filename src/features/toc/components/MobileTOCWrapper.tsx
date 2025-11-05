@@ -37,7 +37,7 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
     <motion.div
       className="fixed left-1/2 z-40 -translate-x-1/2"
       animate={{
-        top: isVisible ? '3.5rem' : '-30rem'
+        top: isVisible ? 'calc(3.5rem + env(safe-area-inset-top))' : '-30rem'
       }}
       initial={{ top: '-5rem' }}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
