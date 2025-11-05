@@ -193,6 +193,8 @@
 }
 
 .w-md-editor-text-input {
+  height: 100% !important;
+  overflow-y: auto !important;
   background-color: #1e1e1e !important;
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
@@ -209,6 +211,10 @@
 
 .w-md-editor-content {
   background-color: #1e1e1e !important;
+}
+
+.language-markdown .code-highlight {
+  display: none !important;
 }
 
 .home-name {
