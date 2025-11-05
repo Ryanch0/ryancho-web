@@ -51,7 +51,7 @@ const Page = async ({ params }: Props) => {
   const { prev, next } = await getPreviousNextPostHandler(data.raw_date)
 
   return (
-    <div className={'flex flex-col pt-18'}>
+    <div className={'flex flex-col pt-4 sm:pt-18'}>
       <div>
         <h2 className={'title-style'}>{data.title}</h2>
         <div className={'second-font-style py-1'}>

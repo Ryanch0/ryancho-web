@@ -19,7 +19,7 @@ const Projects = () => {
             Naver Financial - Employee Welfare Platform (Frontend Lead){' '}
           </p>
           <span className={'pt-1 text-xs'}>Jan 2025 – Present</span>
-          <div className="my-1 flex gap-1 text-xs">
+          <div className="my-1 flex flex-wrap gap-1 text-xs">
             {[
               'React',
               'TypeScript',
@@ -75,7 +75,7 @@ const Projects = () => {
             Project)
           </p>
           <span className={'pt-1 text-xs'}>Oct 2024 – Jan 2025</span>
-          <div className="my-1 flex gap-1 text-xs">
+          <div className="my-1 flex flex-wrap gap-1 text-xs">
             {['React', 'TypeScript', 'Vite', 'Ant Design', 'Sass', 'Jotai'].map(
               (tag) => (
                 <TagItem tag={tag} key={tag} />
@@ -100,7 +100,7 @@ const Projects = () => {
             Sub Project)
           </p>
           <span className={'pt-1 text-xs'}>Apr 2024 – Jun 2025</span>
-          <div className="my-1 flex gap-1 text-xs">
+          <div className="my-1 flex flex-wrap gap-1 text-xs">
             {['React', 'TypeScript', 'Vite', 'Sass', 'Jotai'].map((tag) => (
               <TagItem tag={tag} key={tag} />
             ))}
@@ -132,7 +132,7 @@ const Projects = () => {
             This Website - ryanch0.dev
           </p>
           <span className={'pt-1 text-xs'}>Oct 2025 – Nov 2025</span>
-          <div className="my-1 flex gap-1 text-xs">
+          <div className="my-1 flex flex-wrap gap-1 text-xs">
             {['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'MDX'].map(
               (tag) => (
                 <TagItem tag={tag} key={tag} />

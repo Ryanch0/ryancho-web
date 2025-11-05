@@ -16,7 +16,7 @@ const Page = async ({ searchParams }: Props) => {
   const tagName = typeof tag === 'string' ? tag : undefined
 
   return (
-    <div className={'flex flex-col gap-30 pt-18'}>
+    <div className={'flex flex-col gap-30 pt-4 sm:pt-18'}>
       <div>
         <h2 className={'title-style'}>Blog Archive</h2>
         <div className={'second-font-style py-1'}>

@@ -8,7 +8,7 @@ import MainLink from '@/shared/components/MainLink'
 
 const Page = () => {
   return (
-    <div className={'flex flex-col gap-30 pt-18'}>
+    <div className={'flex flex-col gap-30 pt-4 sm:pt-18'}>
       <div>
         <h2 className={'title-style'}>About</h2>
         <div className={'second-font-style py-1'}>

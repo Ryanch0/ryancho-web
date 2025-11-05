@@ -12,7 +12,7 @@ const Page = async ({ searchParams }: Props) => {
   const redirectUrl = typeof redirect === 'string' ? redirect : undefined
 
   return (
-    <div className={'flex h-[calc(100vh-54px)] flex-col gap-4 pt-18'}>
+    <div className={'flex h-[calc(100vh-54px)] flex-col gap-4 pt-4 sm:pt-18'}>
       <div>
         <h2 className={'title-style'}>Admin Login</h2>
         <div className={'second-font-style py-1'}>
