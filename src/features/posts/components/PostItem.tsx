@@ -1,8 +1,11 @@
+'use client'
+
 import { ReactNode } from 'react'
 
 import { PATH } from '@/constants/path'
 import groupHoverStyles from '@/features/posts/utils/groupHoverStyles'
 import { getDateParts } from '@/utils/date'
+import { motion } from 'framer-motion'
 import { Link } from 'next-view-transitions'
 
 type Props = {
@@ -16,7 +19,10 @@ const PostItem = ({ title, slug, date, subtitle }: Props) => {
   const { day, month } = getDateParts(date)
 
   return (
-    <li
+    <motion.li
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
       className={
         'group/post [:has(section:hover)_*]:text-base-light/50 dark:[:has(section:hover)_*]:text-base-dark/50 block not-first:pt-6'
       }
@@ -44,7 +50,8 @@ const PostItem = ({ title, slug, date, subtitle }: Props) => {
           </div>
         </div>
       </Link>
-    </li>
+    </motion.li>
+    // </motion.li>
   )
 }
 

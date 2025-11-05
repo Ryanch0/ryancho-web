@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
+import { MotionButton } from '@/components/ui/MotionButton'
 import { Link } from 'next-view-transitions'
 import { useSearchParams } from 'next/navigation'
 
@@ -24,13 +24,16 @@ const TagLinkItem = ({ href, tagName, defaultTag }: Props) => {
   }
 
   return (
-    <Button
+    <MotionButton
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
       variant={getVariant()}
       size="sm"
-      className="text-s h-8 cursor-pointer border-0 transition-colors ease-in-out"
+      className="text-s h-8 cursor-pointer border-0 transition-colors ease-in-out select-none"
     >
       <Link href={href}>{tagName}</Link>
-    </Button>
+    </MotionButton>
   )
 }
 
