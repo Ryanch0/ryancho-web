@@ -56,7 +56,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         data-scroll-behavior="smooth"
         className={`${sourceSerif.variable} ${inter.variable} ${newsreader.variable} ${aritaBuri.variable}`}
       >
-        <body className="bg-background-light dark:bg-background-dark base-font-style pt-11 transition-colors duration-300">
+        <body className="bg-background-light dark:bg-background-dark base-font-style pt-11 transition-colors duration-300 ease-in-out">
           <Providers>{children}</Providers>
         </body>
       </html>

@@ -13,10 +13,10 @@ const PostNavigation = ({ previousPost, nextPost }: Props) => {
           className="group flex flex-col gap-1"
           href={`/posts/${previousPost.slug}`}
         >
-          <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors">
+          <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors ease-in-out">
             Previous
           </div>
-          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
+          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors ease-in-out">
             {previousPost.title}
           </span>
         </a>
@@ -27,10 +27,10 @@ const PostNavigation = ({ previousPost, nextPost }: Props) => {
           className="group text-second hover:text-body ml-auto flex flex-col gap-1 text-right"
           href={`/posts/${nextPost.slug}`}
         >
-          <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors">
+          <div className="text-second-light dark:text-second-dark dark:group-hover:text-base-dark group-hover:text-base-light transition-colors ease-in-out">
             Next
           </div>
-          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors">
+          <span className="accent-font-style group-hover:bg-section-light dark:group-hover:bg-section-dark -mx-1 rounded-sm px-1 transition-colors ease-in-out">
             {nextPost.title}
           </span>
         </a>

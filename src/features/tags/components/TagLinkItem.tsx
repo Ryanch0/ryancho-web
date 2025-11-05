@@ -27,7 +27,7 @@ const TagLinkItem = ({ href, tagName, defaultTag }: Props) => {
     <Button
       variant={getVariant()}
       size="sm"
-      className="text-s h-8 cursor-pointer border-0"
+      className="text-s h-8 cursor-pointer border-0 transition-colors ease-in-out"
     >
       <Link href={href}>{tagName}</Link>
     </Button>
