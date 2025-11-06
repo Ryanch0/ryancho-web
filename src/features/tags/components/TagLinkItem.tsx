@@ -24,16 +24,18 @@ const TagLinkItem = ({ href, tagName, defaultTag }: Props) => {
   }
 
   return (
-    <MotionButton
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: 'easeInOut' }}
-      variant={getVariant()}
-      size="sm"
-      className="text-s h-8 cursor-pointer border-0 transition-colors ease-in-out select-none"
-    >
-      <Link href={href}>{tagName}</Link>
-    </MotionButton>
+    <Link href={href}>
+      <MotionButton
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: 'easeInOut' }}
+        variant={getVariant()}
+        size="sm"
+        className="text-s cursor-pointer border-0 transition-colors ease-in-out select-none"
+      >
+        {tagName}
+      </MotionButton>
+    </Link>
   )
 }
 
