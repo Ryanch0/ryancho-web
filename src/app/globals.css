@@ -30,6 +30,9 @@
 
   --color-underline-dark: #ffffff4d;
   --color-underline-light: #0000004d;
+
+  --color-header-light: rgba(255, 255, 255, 0.95);
+  --color-header-dark: rgba(18, 18, 18, 0.95);
 }
 
 @layer base {

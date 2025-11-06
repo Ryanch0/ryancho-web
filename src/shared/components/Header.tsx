@@ -31,7 +31,7 @@ const Header = async () => {
   )
 
   return (
-    <header className="bg-background-light/95 dark:bg-background-dark/95 fixed top-[env(safe-area-inset-top)] left-0 z-50 w-full transition-colors duration-300 ease-in-out">
+    <header className="bg-header-light dark:bg-header-dark fixed top-[env(safe-area-inset-top)] left-0 z-50 w-full transition-colors duration-300 ease-in-out">
       <div className="mx-auto h-13 px-4 md:max-w-3xl md:px-6">
         <nav className="py-2">
           <div className="flex items-center gap-4">

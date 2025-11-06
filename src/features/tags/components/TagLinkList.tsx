@@ -9,11 +9,11 @@ const TagLinkList = async () => {
   return (
     <div
       className={
-        'bg-background-light/95 dark:bg-background-dark/95 sticky top-13 z-40 -mx-4 transition-colors duration-300 ease-in-out md:-mx-6'
+        'bg-header-light dark:bg-header-dark sticky top-13 z-40 -mx-4 transition-colors duration-300 ease-in-out md:-mx-6'
       }
     >
       <nav className={'mx-4 md:mx-6'}>
-        <ScrollArea className="pt-2 pb-4 whitespace-nowrap">
+        <ScrollArea className="pt-2 pb-4 whitespace-nowrap [&>[data-orientation=vertical]]:hidden">
           <ul className="align-center flex gap-2">
             <li key="all">
               <TagLinkItem href={PATH.POSTS} tagName={'All'} defaultTag />
