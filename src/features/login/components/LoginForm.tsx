@@ -17,19 +17,17 @@ type Props = {
   action: (
     _: FormState,
     formData: FormData,
-    request?: Request,
     redirectUrl?: string
   ) => Promise<FormState>
   redirectUrl?: string
-  request?: Request
 }
 
-const LoginForm = ({ action, redirectUrl, request }: Props) => {
+const LoginForm = ({ action, redirectUrl }: Props) => {
   const wrappedAction = async (
     _: FormState,
     formData: FormData
   ): Promise<FormState> => {
-    return action(_, formData, request, redirectUrl)
+    return action(_, formData, redirectUrl)
   }
 
   const [state, formAction, isPending] = useActionState(wrappedAction, {})
