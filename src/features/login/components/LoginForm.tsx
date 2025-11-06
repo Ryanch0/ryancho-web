@@ -37,7 +37,7 @@ const LoginForm = ({ action, redirectUrl, request }: Props) => {
 
   const renderErrorMessage = (field: 'email' | 'password' | 'message') => {
     const errorMessage = error?.[field] || ''
-    const errorStyle = error?.[field] ? 'opacity-100 mb-3 h-4' : 'opacity-0 h-2'
+    const errorStyle = error?.[field] ? 'opacity-100 mb-3 ' : 'opacity-0 h-2'
 
     return (
       <p className={`${errorStyle} text-destructive text-sm transition-all`}>
