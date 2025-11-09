@@ -258,15 +258,15 @@
 }
 
 .home-description {
-  animation: fade-slide-up 0.5s ease-out 0.1s both;
+  animation: fade-slide-up 0.5s ease-out 0.05s both;
 }
 
 .home-sub-description {
-  animation: fade-slide-up 0.5s ease-out 0.2s both;
+  animation: fade-slide-up 0.5s ease-out 0.1s both;
 }
 
 .home-links {
-  animation: fade-slide-up 0.5s ease-out 0.3s both;
+  animation: fade-slide-up 0.5s ease-out 0.15s both;
 }
 
 .home-name,
@@ -274,16 +274,17 @@
 .home-sub-description,
 .home-links {
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 @keyframes fade-slide-up {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translate3d(0, 10px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
