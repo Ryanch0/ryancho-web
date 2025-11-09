@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 
 import { PATH } from '@/constants/path'
 import { Link } from 'next-view-transitions'
@@ -9,11 +9,13 @@ type Props = {
   title?: ReactNode
   target?: string
   rel?: string
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 const MainLink = ({
   className,
   href = PATH.MAIN,
   title = <h4>Ryan Cho</h4>,
+  onClick,
   target,
   rel
 }: Props) => {
@@ -23,6 +25,7 @@ const MainLink = ({
       href={href}
       rel={rel}
       target={target}
+      onClick={onClick}
     >
       {title}
     </Link>
