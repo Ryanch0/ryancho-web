@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
         pathname: process.env.NEXT_PUBLIC_SUPABASE_STORAGE_PATHNAME
       }
     ]
+  },
+  experimental: {
+    reactCompiler: true
   }
 }
 
