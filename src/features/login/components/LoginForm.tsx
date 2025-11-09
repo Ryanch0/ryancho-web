@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { signInFormState } from '@/features/login/types/login'
 import { AlertCircle } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
 
 type FormState = {
   error?: signInFormState
@@ -19,10 +20,11 @@ type Props = {
     formData: FormData,
     redirectUrl?: string
   ) => Promise<FormState>
-  redirectUrl?: string
 }
 
-const LoginForm = ({ action, redirectUrl }: Props) => {
+const LoginForm = ({ action }: Props) => {
+  const searchParams = useSearchParams()
+  const redirectUrl = searchParams.get('redirect') || undefined
   const wrappedAction = async (
     _: FormState,
     formData: FormData

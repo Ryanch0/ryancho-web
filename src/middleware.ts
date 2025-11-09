@@ -17,19 +17,10 @@ export const middleware = async (request: NextRequest) => {
   })
 
   const supabase = await createClientForServer()
-
   const {
     data: { user },
     error
   } = await supabase.auth.getUser()
-
-  const isLoginPage = request.nextUrl.pathname === PATH.LOGIN
-
-  if (isLoginPage) {
-    if (!user || error) return response
-
-    return NextResponse.redirect(new URL(PATH.POSTS, request.url))
-  }
 
   if (!user || error) {
     const redirectUrl = new URL(PATH.LOGIN, request.url)
@@ -40,7 +31,6 @@ export const middleware = async (request: NextRequest) => {
 
   return response
 }
-
 export const config = {
-  matcher: ['/write/:path*', '/login']
+  matcher: ['/write/:path*']
 }

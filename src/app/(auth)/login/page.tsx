@@ -1,16 +1,11 @@
+import { Suspense } from 'react'
+
 import { signInAction } from '@/features/login/actions/login'
 import LoginForm from '@/features/login/components/LoginForm'
 import Footer from '@/shared/components/Footer'
 import MainLink from '@/shared/components/MainLink'
-import { SearchParams } from 'next/dist/server/request/search-params'
 
-type Props = {
-  searchParams: Promise<SearchParams>
-}
-const Page = async ({ searchParams }: Props) => {
-  const { redirect } = await searchParams
-  const redirectUrl = typeof redirect === 'string' ? redirect : undefined
-
+const Page = () => {
   return (
     <div className={'flex h-[calc(100dvh-54px)] flex-col gap-4 pt-6 sm:pt-18'}>
       <div>
@@ -20,7 +15,9 @@ const Page = async ({ searchParams }: Props) => {
           <span>by</span> <MainLink />
         </div>
         <main className={'layout-content'}>
-          <LoginForm action={signInAction} redirectUrl={redirectUrl} />
+          <Suspense fallback={<></>}>
+            <LoginForm action={signInAction} />
+          </Suspense>
         </main>
       </div>
       <Footer />
