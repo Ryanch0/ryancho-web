@@ -70,7 +70,7 @@ const LoginForm = ({ action }: LoginFormProps) => {
 
       <Button
         type="submit"
-        className="bg-base-light dark:bg-base-dark text-accent-dark dark:text-accent-light hover:bg-base-light/70 dark:hover:bg-base-dark/70 mt-1.5 w-full cursor-pointer"
+        className="bg-base-light dark:bg-base-dark text-accent-dark dark:text-accent-light hover:bg-base-light/70 dark:hover:bg-base-dark/70 w-full cursor-pointer"
         disabled={isPending}
       >
         {isPending ? 'Logging in...' : 'Login'}

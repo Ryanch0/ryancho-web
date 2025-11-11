@@ -15,10 +15,10 @@ const LoginCaptcha = ({ sitekey, showCaptcha, setCaptchaToken }: Props) => {
 
   return (
     <div
-      className={`mt-1 mb-2 ${
+      className={`my-1 ${
         showCaptcha
-          ? 'visible mt-1 max-h-[100px] opacity-100'
-          : 'invisible max-h-0 opacity-0'
+          ? 'visible mb-4.5 max-h-[100px] opacity-100'
+          : 'invisible max-h-0 min-h-1 opacity-0'
       } transition-all duration-300 ease-in-out`}
     >
       <HCaptcha
