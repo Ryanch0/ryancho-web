@@ -6,14 +6,14 @@
 
 @theme {
   --font-family-sans:
-    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    var(--font-inter), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   --font-family-serif:
-    'Source Serif 4 Variable', ui-serif, Georgia, Cambria, 'Times New Roman',
+    var(--font-source-serif), ui-serif, Georgia, Cambria, 'Times New Roman',
     Times, serif;
 
-  --font-family-arita: 'Arita Buri', 'Source Serif 4 Variable', ui-serif;
+  --font-family-arita: var(--font-arita), var(--font-source-serif), ui-serif;
 
   --color-background-dark: #121212;
   --color-base-dark: #c7c7c7;
@@ -133,7 +133,7 @@
 }
 
 @utility title-style {
-  @apply text-accent-light dark:text-accent-dark text-2xl;
+  @apply text-accent-light dark:text-accent-dark text-xl font-semibold;
 }
 
 @utility accent-font-style {
@@ -164,7 +164,7 @@
   & h2 a,
   & h3 a,
   & h4 a {
-    @apply text-inherit no-underline hover:opacity-80;
+    @apply font-semibold text-inherit no-underline hover:opacity-60;
   }
 
   & p {
