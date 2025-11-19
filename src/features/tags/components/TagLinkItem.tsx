@@ -1,7 +1,7 @@
 'use client'
 
 import { MotionButton } from '@/components/ui/MotionButton'
-import { Link } from 'next-view-transitions'
+import LocaleTransitionLink from '@/shared/components/LocaleTransitionLink'
 import { useSearchParams } from 'next/navigation'
 
 type Props = {
@@ -24,7 +24,7 @@ const TagLinkItem = ({ href, tagName, defaultTag }: Props) => {
   }
 
   return (
-    <Link href={href}>
+    <LocaleTransitionLink href={href}>
       <MotionButton
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ const TagLinkItem = ({ href, tagName, defaultTag }: Props) => {
       >
         {tagName}
       </MotionButton>
-    </Link>
+    </LocaleTransitionLink>
   )
 }
 

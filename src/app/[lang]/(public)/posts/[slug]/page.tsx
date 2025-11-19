@@ -16,13 +16,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
-  const { slug } = params
+  const { slug } = await params
 
   const data = await findPostBySlug(slug)
 
@@ -35,7 +35,7 @@ export const generateMetadata = async ({
 }
 
 const Page = async ({ params }: Props) => {
-  const { slug } = params
+  const { slug } = await params
 
   const { isAuthorized } = await authCheckHandler()
   const data = await findPostBySlugHandler(slug)

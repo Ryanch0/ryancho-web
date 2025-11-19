@@ -10,11 +10,9 @@ const intlMiddleware = createIntlMiddleware(routing)
 export async function middleware(request: NextRequest) {
   const intlResponse = intlMiddleware(request)
 
-  if (intlResponse) {
+  if (intlResponse && intlResponse.redirected) {
     // return if next-intl would request redirect-
-    if (intlResponse.status === 307 || intlResponse.status === 308) {
-      return intlResponse
-    }
+    return intlResponse
   }
 
   const ip =

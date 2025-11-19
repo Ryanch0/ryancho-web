@@ -4,9 +4,9 @@ import { ReactNode } from 'react'
 
 import { PATH } from '@/constants/path'
 import groupHoverStyles from '@/features/posts/utils/groupHoverStyles'
+import LocaleTransitionLink from '@/shared/components/LocaleTransitionLink'
 import { getDateParts } from '@/utils/date'
 import { motion } from 'framer-motion'
-import { Link } from 'next-view-transitions'
 
 type Props = {
   preview: string
@@ -27,7 +27,10 @@ const PostItem = ({ title, slug, date, subtitle }: Props) => {
         'group/post [:has(section:hover)_*]:text-base-light/50 dark:[:has(section:hover)_*]:text-base-dark/50 block not-first:pt-6'
       }
     >
-      <Link href={`${PATH.POSTS}/${slug}`} className={'rounded-lg'}>
+      <LocaleTransitionLink
+        href={`${PATH.POSTS}/${slug}`}
+        className={'rounded-lg'}
+      >
         <div className={`w-full ${groupHoverStyles.post}`}>
           <div className={'flex items-center justify-between gap-1'}>
             <div className={'min-w-0 flex-1 truncate'}>
@@ -49,7 +52,7 @@ const PostItem = ({ title, slug, date, subtitle }: Props) => {
             >{`${month}. ${day}.`}</time>
           </div>
         </div>
-      </Link>
+      </LocaleTransitionLink>
     </motion.li>
   )
 }

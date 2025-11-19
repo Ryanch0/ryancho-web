@@ -10,10 +10,10 @@ import { getTranslations } from 'next-intl/server'
 import { SearchParams } from 'next/dist/server/request/search-params'
 
 type Props = {
-  searchParams: SearchParams
+  searchParams: Promise<SearchParams>
 }
 const Page = async ({ searchParams }: Props) => {
-  const { tag } = searchParams
+  const { tag } = await searchParams
   const tagName = typeof tag === 'string' ? tag : undefined
   const t = await getTranslations('BlogPage')
 
