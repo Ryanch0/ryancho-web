@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 import removeImports from 'next-remove-imports'
 
 const nextConfig: NextConfig = {
@@ -16,5 +17,6 @@ const nextConfig: NextConfig = {
     reactCompiler: true
   }
 }
+const withNextIntl = createNextIntlPlugin()
 
-export default removeImports({})(nextConfig)
+export default removeImports({})(withNextIntl(nextConfig))
