@@ -1,6 +1,6 @@
 import { LuLanguages } from 'react-icons/lu'
 
-import { Link, usePathname } from '@/i18n/navigation'
+import { usePathname } from '@/i18n/navigation'
 import { useLocale } from 'next-intl'
 
 const LangToggle = () => {
@@ -8,15 +8,19 @@ const LangToggle = () => {
   const currentLocale = useLocale()
   const locale = currentLocale === 'en' ? 'ko' : 'en'
 
+  const onClick = () => {
+    window.location.href = `/${locale}${pathname.replace(/^\/(en|ko)/, '')}`
+  }
+
   return (
-    <Link href={pathname} locale={locale}>
+    <button onClick={onClick}>
       <LuLanguages
         size={38}
         className={
           'cursor-pointer p-1.5 transition-transform duration-400 ease-out hover:scale-110'
         }
       />
-    </Link>
+    </button>
   )
 }
 
