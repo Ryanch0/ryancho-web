@@ -1,9 +1,22 @@
 import { PATH } from '@/constants/path'
 import { createClientForServer } from '@/lib/supabase/server'
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import createIntlMiddleware from 'next-intl/middleware'
+import { NextRequest, NextResponse } from 'next/server'
 
-export const middleware = async (request: NextRequest) => {
+import { routing } from './i18n/routing'
+
+const intlMiddleware = createIntlMiddleware(routing)
+
+export async function middleware(request: NextRequest) {
+  const intlResponse = intlMiddleware(request)
+
+  if (intlResponse) {
+    // return if next-intl would request redirect-
+    if (intlResponse.status === 307 || intlResponse.status === 308) {
+      return intlResponse
+    }
+  }
+
   const ip =
     request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     request.headers.get('x-real-ip') ||
@@ -12,25 +25,36 @@ export const middleware = async (request: NextRequest) => {
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-client-ip', ip)
 
-  const response = NextResponse.next({
-    request: { headers: requestHeaders }
-  })
+  // override headers if there is response from next-intl
+  const response =
+    intlResponse instanceof NextResponse ? intlResponse : NextResponse.next()
 
-  const supabase = await createClientForServer()
-  const {
-    data: { user },
-    error
-  } = await supabase.auth.getUser()
+  response.headers.set('x-client-ip', ip)
 
-  if (!user || error) {
-    const redirectUrl = new URL(PATH.LOGIN, request.url)
-    redirectUrl.searchParams.set('redirect', request.nextUrl.pathname)
+  //auth protect area from here
+  const protectedPaths = ['/write']
 
-    return NextResponse.redirect(redirectUrl)
+  const pathname = request.nextUrl.pathname
+  const isProtected = protectedPaths.some((p) => pathname.startsWith(p))
+
+  if (isProtected) {
+    const supabase = await createClientForServer()
+    const {
+      data: { user },
+      error
+    } = await supabase.auth.getUser()
+
+    if (!user || error) {
+      const redirectUrl = new URL(PATH.LOGIN, request.url)
+      redirectUrl.searchParams.set('redirect', pathname)
+
+      return NextResponse.redirect(redirectUrl)
+    }
   }
 
   return response
 }
+
 export const config = {
-  matcher: ['/write/:path*']
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)', '/write/:path*']
 }
