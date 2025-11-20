@@ -1,6 +1,7 @@
 'use client'
 
-import MainLink from '@/shared/components/MainLink'
+import { PATH } from '@/constants/path'
+import Link from 'next/link'
 
 export default function Error() {
   return (
@@ -10,7 +11,14 @@ export default function Error() {
         <div className="second-font-style py-1">
           <p>Something went wrong</p>
         </div>
-        <MainLink title={<h4>Return Home</h4>} />
+        <Link
+          className={
+            'accent-font-style decoration-underline-light dark:decoration-underline-dark hover:bg-section-light dark:hover:bg-section-dark inline-block rounded-sm px-1 text-base underline decoration-1 underline-offset-4 transition-colors ease-in-out hover:no-underline'
+          }
+          href={PATH.MAIN}
+        >
+          <h4>Return Home</h4>
+        </Link>
       </div>
     </main>
   )
