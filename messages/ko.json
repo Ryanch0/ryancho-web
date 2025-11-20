@@ -13,6 +13,68 @@
       "text2": "또는 ",
       "text3": "를 확인해 주세요.",
       "resumeTitle": "이력서"
+    },
+    "aboutContent": {
+      "projects": {
+        "company": "지음지식서비스",
+        "role": "Frontend Engineer at Naver Financial  <span>(Oct 2024 - Present)</span>",
+        "project1": {
+          "title": "Naver Financial - Employee Welfare Platform (Frontend Lead)",
+          "period": "Jan 2025 – Present",
+          "descriptions": {
+            "0": "Led frontend architecture design and implementation using React Router Data APIs for a scalable Single Page Application.",
+            "1": "Designed a custom error handling framework between BFF and frontend, enabling contextual, modal, and page-level error recovery aligned with UX requirements.",
+            "2": "Improved application performance through lazy loading, request deduplication, and optimized React compiler usage.",
+            "3": "Developed complex validation workflows with React Hook Form and Zod, including file signature verification for secure uploads.",
+            "4": "Enhanced production observability and security with Sentry integration and hidden sourcemaps via Vite build pipelines.",
+            "5": "Automated API type generation with Swagger TypeScript API, improving developer productivity and backend integration consistency.",
+            "6": "Reduced production bundle size by 30% through dynamic imports, excluding mock and development-only modules.",
+            "7": "Introduced Canary dark-release deployment strategy for safer QA and progressive rollouts, replacing legacy Blue/Green approach."
+          }
+        },
+        "project2": {
+          "title": "Naver Financial - Customer Inquiry Portal (Frontend Development, Sub Project)",
+          "period": "Oct 2024 – Jan 2025",
+          "descriptions": {
+            "0": "Built the customer inquiry page and customized the Ant Design DatePicker component to meet business requirements.",
+            "1": "Conducted cross-device testing using Android Studio and Xcode to resolve layout, scroll, and event bubbling issues."
+          }
+        },
+        "project3": {
+          "title": "Naver Financial - Internal Admin Dashboard (Frontend Development, Sub Project)",
+          "period": "Apr 2024 – Jun 2025",
+          "descriptions": {
+            "0": "Contributed to two internal admin dashboards using React and Jotai for state management.",
+            "1": "Integrated multiple backend and BFF APIs to ensure seamless synchronization and data consistency."
+          }
+        },
+        "personalProject": {
+          "heading": "Personal Project",
+          "sub-heading": "Full-stack Personal Project",
+          "title": "This Website - ryanch0.dev",
+          "period": "Oct 2025 – Nov 2025",
+          "descriptions": {
+            "0": "Built a full-stack personal blog using Next.js (^15 App Router) and Supabase for authentication, storage, and database management.",
+            "1": "Leveraged Next.js Server Actions to handle user authentication and post creation securely without exposing client-side API routes.",
+            "2": "Implemented a custom Markdown editor and renderer (MDX-based) to support rich content authoring.",
+            "3": "Designed and developed a minimal design system using Tailwind CSS for consistent typography, spacing, and component styles.",
+            "4": "Utilized Next.js Middleware to handle protected routes and enforce authentication on server side.",
+            "5": "Enhanced login security by integrating CAPTCHA to block automated bot attacks and implementing Redis-backed IP rate limiting to\n              mitigate brute-force attempts."
+          }
+        }
+      },
+      "education": {
+        "univ": {
+          "name": "수원대학교",
+          "major": "B.S. in Electronic Materials Engineering",
+          "location": "Suwon, South Korea | Feb 2017 – Feb 2025"
+        },
+        "college": {
+          "name": "ILAC International College",
+          "major": "Diploma in Service Excellence for Business",
+          "location": "Vancouver, Canada | Feb 2023 – Jan 2024"
+        }
+      }
     }
   },
   "BlogPage": {
