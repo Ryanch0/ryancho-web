@@ -1,21 +1,14 @@
-import Footer from '@/shared/components/Footer'
-import Header from '@/shared/components/Header'
-import MainLink from '@/shared/components/MainLink'
+import { PATH } from '@/constants/path'
+import Link from 'next/link'
 
 const NotFound = () => {
   return (
-    <main className="layout">
-      <Header />
-      <div className={'flex flex-col gap-30 pt-18'}>
-        <div>
-          <h2 className={'title-style'}>404</h2>
-          <div className={'second-font-style py-1'}>
-            <p>Page Not Found</p>
-            <span>by</span> <MainLink />
-          </div>
-        </div>
-        <Footer />
-      </div>
+    <main>
+      <h2>404</h2>
+      <p>Page Not Found</p>
+      <Link href={PATH.MAIN}>
+        <h4>Return Home</h4>
+      </Link>
     </main>
   )
 }
