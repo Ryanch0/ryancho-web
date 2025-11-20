@@ -69,19 +69,19 @@ export const createPostHandler = async (
   const tags = generateTags(tagsString)
   const slug = generateSlug(title)
 
-  const preview = generatePreview(content, 200)
-
   const date = new Date().toISOString()
 
   const meta_description = generatePreview(content, 150)
 
   const dto = {
     title,
+    title_kr: '',
     subtitle,
+    subtitle_kr: '',
     content,
+    content_kr: '',
     tags,
     slug,
-    preview,
     date,
     meta_description
   }
@@ -97,7 +97,6 @@ export const updatePostHandler = async (
   tagsString: string
 ): Promise<PostSlug> => {
   const tags = generateTags(tagsString)
-  const preview = generatePreview(content, 200)
 
   const last_modified = new Date().toISOString()
 
@@ -108,7 +107,6 @@ export const updatePostHandler = async (
     subtitle,
     content,
     tags,
-    preview,
     meta_description,
     last_modified
   }
