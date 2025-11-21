@@ -8,11 +8,13 @@ import { findPostBySlug } from '@/external/repository/posts-server'
 import PostDeleteButton from '@/features/posts/components/PostDeleteButton'
 import PostDetail from '@/features/posts/components/PostDetail'
 import PostNavigation from '@/features/posts/components/PostNavigation'
+import { getColumnFromLocale } from '@/features/posts/utils/getColumnFromLocale'
 import TagItem from '@/features/tags/components/TagItem'
 import { createMetadata } from '@/lib/metadata'
 import Footer from '@/shared/components/Footer'
 import MainLink from '@/shared/components/MainLink'
 import { Metadata } from 'next'
+import { getLocale } from 'next-intl/server'
 import Link from 'next/link'
 
 type Props = {
@@ -35,16 +37,21 @@ export const generateMetadata = async ({
 }
 
 const Page = async ({ params }: Props) => {
+  //TODO SUSPENSE
   const { slug } = await params
-
-  const { isAuthorized } = await authCheckHandler()
-  const data = await findPostBySlugHandler(slug)
+  const [{ isAuthorized }, locale, data] = await Promise.all([
+    authCheckHandler(),
+    getLocale(),
+    findPostBySlugHandler(slug)
+  ])
   const { prev, next } = await getPreviousNextPostHandler(data.raw_date)
+
+  const title = getColumnFromLocale(locale, data.title, data.title_kr)
 
   return (
     <div className={'flex flex-col pt-6 sm:pt-18'}>
       <div>
-        <h2 className={'title-style'}>{data.title}</h2>
+        <h2 className={'title-style'}>{title}</h2>
         <div className={'second-font-style py-1'}>
           <p>{data.date}</p>
           <span>by</span> <MainLink />
@@ -65,16 +72,19 @@ const Page = async ({ params }: Props) => {
             <PostDeleteButton id={data.id} />
           </div>
         )}
-        <PostDetail content={data.content} title={data.title} />
+        <PostDetail
+          content={getColumnFromLocale(locale, data.content, data.content_kr)}
+          title={title}
+        />
       </div>
       <PostNavigation
         previousPost={{
           slug: prev.slug,
-          title: prev.title
+          title: getColumnFromLocale(locale, prev.title, prev.title_kr)
         }}
         nextPost={{
           slug: next.slug,
-          title: next.title
+          title: getColumnFromLocale(locale, next.title, next.title_kr)
         }}
       />
       <Footer />

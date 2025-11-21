@@ -20,7 +20,7 @@ export const findPostsByTag = async (tag: string) => {
   const supabase = await createClientForServer()
   const { error, data } = await supabase
     .from('posts')
-    .select('id, title,  tags, slug, date, subtitle, title_kr, subtitle_kr')
+    .select('id, title, tags, slug, date, subtitle, title_kr, subtitle_kr')
     .order('date', { ascending: false })
     .contains('tags', [tag])
 

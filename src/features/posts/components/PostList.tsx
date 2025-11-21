@@ -40,11 +40,12 @@ const PostList = async ({ tag }: Props) => {
                 {yearPosts.map((post) => {
                   return (
                     <PostItem
-                      key={post.id}
-                      preview={post.preview}
-                      slug={post.slug}
                       title={post.title}
                       subtitle={post.subtitle}
+                      title_kr={post.title_kr}
+                      subtitle_kr={post.subtitle_kr}
+                      key={post.id}
+                      slug={post.slug}
                       date={post.date}
                     />
                   )

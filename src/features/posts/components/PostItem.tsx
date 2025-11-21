@@ -1,22 +1,34 @@
 'use client'
 
-import { ReactNode } from 'react'
-
 import { PATH } from '@/constants/path'
+import { getColumnFromLocale } from '@/features/posts/utils/getColumnFromLocale'
 import groupHoverStyles from '@/features/posts/utils/groupHoverStyles'
 import LocaleTransitionLink from '@/shared/components/LocaleTransitionLink'
 import { getDateParts } from '@/utils/date'
 import { motion } from 'framer-motion'
+import { useLocale } from 'next-intl'
 
 type Props = {
-  preview: string
-  title: ReactNode
-  subtitle: ReactNode
+  title: string
+  title_kr: string
+  subtitle: string
+  subtitle_kr: string
   slug: string
   date: string
 }
-const PostItem = ({ title, slug, date, subtitle }: Props) => {
+const PostItem = ({
+  title,
+  slug,
+  date,
+  subtitle,
+  title_kr,
+  subtitle_kr
+}: Props) => {
   const { day, month } = getDateParts(date)
+  const locale = useLocale()
+
+  const itemTitle = getColumnFromLocale(locale, title, title_kr)
+  const itemSubtitle = getColumnFromLocale(locale, subtitle, subtitle_kr)
 
   return (
     <motion.li
@@ -35,14 +47,14 @@ const PostItem = ({ title, slug, date, subtitle }: Props) => {
           <div className={'flex items-center justify-between gap-1'}>
             <div className={'min-w-0 flex-1 truncate'}>
               <h4 className={'mt-1 truncate text-base'}>
-                <span>{title}</span>
+                <span>{itemTitle}</span>
               </h4>
               <p
                 className={
                   'truncate text-sm text-[#999999] dark:text-[#808080]'
                 }
               >
-                {subtitle}
+                {itemSubtitle}
               </p>
             </div>
             <time
