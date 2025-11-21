@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { PATH } from '@/constants/path'
 import useDebounce from '@/features/search/hooks/useDebounce'
 import useFetchSearchedPosts from '@/features/search/hooks/useFetchSearchedPosts'
+import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 
 const useSearchModalUseCase = ({
@@ -18,6 +19,7 @@ const useSearchModalUseCase = ({
   const { push } = useRouter()
 
   const { posts, loading } = useFetchSearchedPosts({ search: debouncedSearch })
+  const locale = useLocale()
 
   const onChange = (val: string) => {
     setSearch(val)
@@ -50,7 +52,8 @@ const useSearchModalUseCase = ({
     loading,
     onChange,
     onCloseModal,
-    onSelect
+    onSelect,
+    locale
   }
 }
 

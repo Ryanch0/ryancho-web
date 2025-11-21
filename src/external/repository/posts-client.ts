@@ -12,7 +12,9 @@ export const findPostsBySearch = async (search: string) => {
   const { data, error } = await supabase
     .from('posts')
     .select('id, title, tags, slug, date, subtitle, title_kr, subtitle_kr')
-    .or(`title.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%`)
+    .or(
+      `title.ilike.%${searchTerm}%,content.ilike.%${searchTerm}%,title_kr.ilike.%${searchTerm}%,content_kr.ilike.%${searchTerm}%`
+    )
     .order('date', { ascending: false })
 
   if (error) {

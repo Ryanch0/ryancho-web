@@ -13,6 +13,7 @@ import {
   DialogDescription,
   DialogTitle
 } from '@/components/ui/dialog'
+import { getColumnFromLocale } from '@/features/posts/utils/getColumnFromLocale'
 import useSearchModalUseCase from '@/features/search/hooks/usecases/useSearchModalUseCase'
 
 type Props = {
@@ -21,7 +22,7 @@ type Props = {
 }
 
 const SearchModal = ({ isOpen, onClose }: Props) => {
-  const { search, posts, loading, onChange, onCloseModal, onSelect } =
+  const { search, posts, loading, onChange, onCloseModal, onSelect, locale } =
     useSearchModalUseCase({ onClose, isOpen })
 
   const renderResults = () => {
@@ -61,7 +62,7 @@ const SearchModal = ({ isOpen, onClose }: Props) => {
             onSelect={() => onSelect(post.slug)}
           >
             <h2 className="text-base-light dark:text-base-dark">
-              {post.title}
+              {getColumnFromLocale(locale, post.title, post.title_kr)}
             </h2>
           </CommandItem>
         ))}
