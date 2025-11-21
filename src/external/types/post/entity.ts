@@ -10,5 +10,4 @@ export type Post = {
   tags?: string[]
   date: string
   last_modified?: string
-  meta_description: string
 }

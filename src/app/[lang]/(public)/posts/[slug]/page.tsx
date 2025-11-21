@@ -5,6 +5,7 @@ import PostContent from '@/features/posts/components/PostContent'
 import PostNavigationWrapper from '@/features/posts/components/PostNavigationWrapper'
 import PostContentSkeleton from '@/features/posts/components/skeleton/PostContentSkeleton'
 import PostNavigationSkeleton from '@/features/posts/components/skeleton/PostNavigationSkeleton'
+import { getColumnFromLocale } from '@/features/posts/utils/getColumnFromLocale'
 import { createMetadata } from '@/lib/metadata'
 import Footer from '@/shared/components/Footer'
 import { Metadata } from 'next'
@@ -18,14 +19,15 @@ export const generateMetadata = async ({
   params
 }: Props): Promise<Metadata> => {
   const { slug } = await params
+  const locale = await getLocale()
 
   const data = await findPostBySlug(slug)
 
   return createMetadata({
-    title: data.title,
-    description: data.subtitle,
-    ogDescription: data.subtitle,
-    url: `/posts/${slug}`
+    title: getColumnFromLocale(locale, data.title, data.title_kr),
+    description: getColumnFromLocale(locale, data.subtitle, data.subtitle_kr),
+    ogDescription: getColumnFromLocale(locale, data.subtitle, data.subtitle_kr),
+    url: locale === 'en' ? `/posts/${slug}` : `/ko/posts/${slug}`
   })
 }
 

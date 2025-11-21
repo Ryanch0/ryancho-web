@@ -4,10 +4,10 @@ import PostForm from '@/features/posts/components/PostForm'
 import { notFound } from 'next/navigation'
 
 type Props = {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 const Page = async ({ params }: Props) => {
-  const { id } = params
+  const { id } = await params
 
   const prev = await findPostByIdHandler(id)
 

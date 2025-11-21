@@ -9,11 +9,7 @@ import {
   getPreviousPost,
   updatePost
 } from '@/external/repository/posts-server'
-import {
-  generatePreview,
-  generateSlug,
-  generateTags
-} from '@/external/service/post'
+import { generateSlug, generateTags } from '@/external/service/post'
 import { Post } from '@/external/types/post/entity'
 import {
   PostForm,
@@ -72,8 +68,6 @@ export const createPostHandler = async (
 
   const date = new Date().toISOString()
 
-  const meta_description = generatePreview(content, 150)
-
   const dto = {
     title,
     title_kr: '',
@@ -83,8 +77,7 @@ export const createPostHandler = async (
     content_kr: '',
     tags,
     slug,
-    date,
-    meta_description
+    date
   }
 
   return await createPost(dto)
@@ -101,14 +94,11 @@ export const updatePostHandler = async (
 
   const last_modified = new Date().toISOString()
 
-  const meta_description = generatePreview(content, 150)
-
   const dto = {
     title,
     subtitle,
     content,
     tags,
-    meta_description,
     last_modified
   }
 

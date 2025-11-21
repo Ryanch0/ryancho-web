@@ -1,15 +1,23 @@
 import { PropsWithChildren } from 'react'
 
 import { createMetadata } from '@/lib/metadata'
-import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
-export const metadata: Metadata = createMetadata({
-  title: 'Blog Archive',
-  description: 'A space for storing insights',
-  ogDescription: 'A space for storing insights',
-  url: '/posts'
-})
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  const { lang } = await params
+  const t = await getTranslations('BlogPage')
 
+  return createMetadata({
+    title: t('title'),
+    description: t('description'),
+    ogDescription: t('description'),
+    url: lang === 'en' ? '/posts' : '/ko/posts'
+  })
+}
 const Layout = ({ children }: PropsWithChildren) => {
   return <>{children}</>
 }

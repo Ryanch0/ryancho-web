@@ -1,5 +1,3 @@
-import type { Metadata } from 'next'
-
 import '../globals.css'
 
 import { PropsWithChildren } from 'react'
@@ -7,15 +5,26 @@ import { PropsWithChildren } from 'react'
 import { createMetadata } from '@/lib/metadata'
 import Providers from '@/shared/components/Providers'
 import { NextIntlClientProvider } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { ViewTransitions } from 'next-view-transitions'
 import { Inter, Source_Serif_4 } from 'next/font/google'
 import localFont from 'next/font/local'
 
-export const metadata: Metadata = createMetadata({
-  ogTitle: 'ryanch0.dev',
-  description: 'Crafting elegant solutions from obstacles',
-  ogDescription: 'Where obstacles become elegant solutions'
-})
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  const { lang } = await params
+  const t = await getTranslations('MainPage')
+
+  return createMetadata({
+    title: t('title'),
+    description: 'Crafting elegant solutions from obstacles',
+    ogDescription: 'Where obstacles become elegant solutions',
+    url: lang === 'en' ? '/' : '/ko'
+  })
+}
 
 const sourceSerif = Source_Serif_4({
   subsets: ['latin'],
