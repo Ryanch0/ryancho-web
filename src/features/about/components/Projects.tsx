@@ -37,7 +37,7 @@ const Projects = async () => {
             ))}
           </div>
           <ul className={'mt-1 flex max-w-[85%] flex-col gap-1 space-y-1'}>
-            {getProjectDescriptionList(8, 'project1.descriptions', t)}
+            {getProjectDescriptionList(9, 'project1.descriptions', t)}
           </ul>
         </div>
 
@@ -98,7 +98,7 @@ const Projects = async () => {
             )}
           </div>
           <ul className={'mt-1 flex max-w-[85%] flex-col gap-1 space-y-1'}>
-            {getProjectDescriptionList(6, 'personalProject.descriptions', t)}
+            {getProjectDescriptionList(8, 'personalProject.descriptions', t)}
           </ul>
         </div>
       </article>

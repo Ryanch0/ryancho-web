@@ -1,8 +1,8 @@
 {
   "MainPage": {
     "title": "Ryan Cho",
-    "description1": "Exploring to refine flow and structure, finding new <strong>alternatives</strong> even within complex problems. Distilling complexity into clarity to connect challenges to more definitive <strong>solutions</strong>.",
-    "description2": "Currently work at <strong>Naver Financial</strong> as a frontend developer, crafting seamless user experiences."
+    "description1": "Find clarity in complex flows and shape them into simpler, more coherent structures. Explore the smallest details and build subtle improvements that lead to better experiences.",
+    "description2": "Currently work at <strong>Naver Financial</strong> as a frontend developer."
   },
   "AboutPage": {
     "title": "About",
@@ -19,33 +19,34 @@
         "company": "Zium Knowledge Service",
         "role": "Frontend Engineer at Naver Financial  <span>(Oct 2024 - Present)</span>",
         "project1": {
-          "title": "Naver Financial - Employee Welfare Platform (Frontend Lead)",
+          "title": "Naver Financial - Corporate Employee Welfare Platform (Frontend Lead)",
           "period": "Jan 2025 – Present",
           "descriptions": {
-            "0": "Led frontend architecture design and implementation using React Router Data APIs for a scalable Single Page Application.",
-            "1": "Designed a custom error handling framework between BFF and frontend, enabling contextual, modal, and page-level error recovery aligned with UX requirements.",
-            "2": "Improved application performance through lazy loading, request deduplication, and optimized React compiler usage.",
-            "3": "Developed complex validation workflows with React Hook Form and Zod, including file signature verification for secure uploads.",
-            "4": "Enhanced production observability and security with Sentry integration and hidden sourcemaps via Vite build pipelines.",
-            "5": "Automated API type generation with Swagger TypeScript API, improving developer productivity and backend integration consistency.",
-            "6": "Reduced production bundle size by 30% through dynamic imports, excluding mock and development-only modules.",
-            "7": "Introduced Canary dark-release deployment strategy for safer QA and progressive rollouts, replacing legacy Blue/Green approach."
+            "0": "Led the design and implementation of a SPA architecture using React Router Data APIs.",
+            "1": "Designed end-to-end authentication and error-handling flows between the BFF and frontend, including a custom error class–based domain exception framework.",
+            "2": "Established an asynchronous data loading structure using clientLoader and built a unified loading experience through Suspense integration.",
+            "3": "Reduced production bundle size by 30% and improved performance through lazy loading, dynamic module loading, request deduplication, and React Compiler optimizations.",
+            "4": "Built a complex form state management system using React Hook Form and Zod, including secure file signature verification.",
+            "5": "Improved production monitoring security and accuracy by applying Sentry integration with hidden sourcemaps.",
+            "6": "Established a type-safe API integration workflow using Swagger TypeScript API to improve developer productivity and backend consistency.",
+            "7": "Enhanced user experience by implementing client-side timeout handling and refetch strategies during BFF delays and gateway timeout scenarios.",
+            "8": "Implemented a Canary dark-release deployment strategy to replace the legacy Blue/Green process, enabling stable QA and progressive rollouts."
           }
         },
         "project2": {
           "title": "Naver Financial - Customer Inquiry Portal (Frontend Development, Sub Project)",
           "period": "Oct 2024 – Jan 2025",
           "descriptions": {
-            "0": "Built the customer inquiry page and customized the Ant Design DatePicker component to meet business requirements.",
-            "1": "Conducted cross-device testing using Android Studio and Xcode to resolve layout, scroll, and event bubbling issues."
+            "0": "Implemented the customer inquiry page with requirement-driven UI improvements.",
+            "1": "Improved mobile UI stability through cross-device testing."
           }
         },
         "project3": {
           "title": "Naver Financial - Internal Admin Dashboard (Frontend Development, Sub Project)",
           "period": "Apr 2024 – Jun 2025",
           "descriptions": {
-            "0": "Contributed to two internal admin dashboards using React and Jotai for state management.",
-            "1": "Integrated multiple backend and BFF APIs to ensure seamless synchronization and data consistency."
+            "0": "Developed internal admin dashboards using React and applied Jotai for state management.",
+            "1": "Integrated multiple BFF and backend APIs to support core features and ensure maintainable service interactions."
           }
         },
         "personalProject": {
@@ -54,12 +55,14 @@
           "title": "This Website - ryanch0.dev",
           "period": "Oct 2025 – Nov 2025",
           "descriptions": {
-            "0": "Built a full-stack personal blog using Next.js (^15 App Router) and Supabase for authentication, storage, and database management.",
-            "1": "Leveraged Next.js Server Actions to handle user authentication and post creation securely without exposing client-side API routes.",
-            "2": "Implemented a custom Markdown editor and renderer (MDX-based) to support rich content authoring.",
-            "3": "Designed and developed a minimal design system using Tailwind CSS for consistent typography, spacing, and component styles.",
-            "4": "Utilized Next.js Middleware to handle protected routes and enforce authentication on server side.",
-            "5": "Enhanced login security by integrating CAPTCHA to block automated bot attacks and implementing Redis-backed IP rate limiting to\n              mitigate brute-force attempts."
+            "0": "Built a full-stack personal blog using Next.js 15 (App Router) and Supabase for authentication, storage, and database management.",
+            "1": "Handled login and post creation logic on the server using Next.js Server Actions.",
+            "2": "Implemented a custom Markdown editor and renderer based on MDX.",
+            "3": "Built a Tailwind CSS–based design system and improved UI details.",
+            "4": "Implemented protected route handling and server-side auth verification using Next.js Middleware.",
+            "5": "Enhanced login security by integrating CAPTCHA and applying Redis-based IP rate limiting to block bot and brute-force attacks.",
+            "6": "Built an i18n locale management structure and improved routing by integrating it with Middleware.",
+            "7": "Optimized asynchronous rendering and loading flows using Suspense to reduce UX delays."
           }
         }
       },
