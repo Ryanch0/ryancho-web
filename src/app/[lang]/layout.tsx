@@ -79,19 +79,19 @@ export default async function RootLayout({
   const { lang } = await params
 
   return (
-    <ViewTransitions>
-      <html
-        lang={lang}
-        suppressHydrationWarning
-        data-scroll-behavior="smooth"
-        className={`${sourceSerif.variable} ${inter.variable} ${aritaBuri.variable}`}
-      >
-        <body className="bg-background-light dark:bg-background-dark base-font-style pt-11">
+    <html
+      lang={lang}
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+      className={`${sourceSerif.variable} ${inter.variable} ${aritaBuri.variable}`}
+    >
+      <body className="bg-background-light dark:bg-background-dark base-font-style pt-11">
+        <ViewTransitions>
           <NextIntlClientProvider>
             <Providers>{children}</Providers>
           </NextIntlClientProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+        </ViewTransitions>
+      </body>
+    </html>
   )
 }
