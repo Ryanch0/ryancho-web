@@ -269,14 +269,6 @@
   animation: fade-slide-up 0.5s ease-out 0.15s both;
 }
 
-.home-name,
-.home-description,
-.home-sub-description,
-.home-links {
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
 @keyframes fade-slide-up {
   from {
     opacity: 0;
