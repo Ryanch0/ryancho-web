@@ -26,7 +26,7 @@ const Header = () => {
   const authLink = isAuthorized ? (
     <LocaleTransitionLink href={PATH.WRITE}>
       <FiPlus
-        size={38}
+        size={35}
         className={
           'cursor-pointer p-1.5 transition-transform duration-400 ease-out hover:scale-110'
         }
@@ -35,7 +35,7 @@ const Header = () => {
   ) : (
     <LocaleTransitionLink href={PATH.LOGIN}>
       <FaUserShield
-        size={38}
+        size={35}
         className={
           'cursor-pointer p-1.5 transition-transform duration-400 ease-out hover:scale-110'
         }

@@ -14,7 +14,7 @@ const ToggleIcon = ({
 }) => {
   return (
     <Icon
-      size={38}
+      size={35}
       className={`icon-default-style transition-colors duration-300 ${className}`}
     />
   )

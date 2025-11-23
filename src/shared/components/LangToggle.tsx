@@ -15,7 +15,7 @@ const LangToggle = () => {
   return (
     <button onClick={onClick}>
       <LuLanguages
-        size={38}
+        size={35}
         className={
           'cursor-pointer p-1.5 transition-transform duration-400 ease-out hover:scale-110'
         }
