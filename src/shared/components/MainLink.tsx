@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
+import { GoArrowUpRight } from 'react-icons/go'
 
 import { PATH } from '@/constants/path'
 import LocaleTransitionLink from '@/shared/components/LocaleTransitionLink'
@@ -29,7 +30,12 @@ const MainLink = ({
       rel={rel}
       target={target}
     >
-      {title || <h4>{t('name')}</h4>}
+      {title || (
+        <span className={'flex'}>
+          <h4>{t('name')}</h4>
+          <GoArrowUpRight className={'mt-0.5'} />
+        </span>
+      )}
     </LocaleTransitionLink>
   )
 }

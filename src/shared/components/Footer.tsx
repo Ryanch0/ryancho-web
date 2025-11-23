@@ -15,7 +15,7 @@ const Footer = () => {
     >
       <div>
         Copyright ©
-        <MainLink />
+        <MainLink title={<h4>{t('name')}</h4>} />
       </div>
 
       <MainLink
