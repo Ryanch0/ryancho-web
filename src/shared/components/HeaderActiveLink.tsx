@@ -12,7 +12,7 @@ type Props = {
 }
 const HeaderActiveLink = ({ children, href, className }: Props) => {
   const pathname = usePathname()
-  const isActive = href === pathname
+  const isActive = pathname.startsWith(href)
   const activeClassName = isActive
     ? 'decoration-1 decoration-underline-light dark:decoration-underline-dark underline-offset-4 underline'
     : ''
