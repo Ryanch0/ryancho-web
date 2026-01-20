@@ -18,10 +18,8 @@ const MobileTOCWrapper = ({ title, children, isVisible = false }: Props) => {
   const [titleWidth, setTitleWidth] = useState<number | null>(null)
 
   const getWidth = () => {
-    if (isOpen) return 'min(300px, calc(100vw - 2rem))'
-
     if (titleWidth) {
-      return `min(${titleWidth + 30}px, min(calc(100vw - 2rem), 300px))`
+      return `min(${titleWidth + 30}px, min(calc(100vw - 2rem), 450px))`
     }
 
     return 'auto'
