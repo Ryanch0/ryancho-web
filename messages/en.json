@@ -25,9 +25,9 @@
             "0": "Led the design and implementation of a scalable SPA architecture using React Router Data APIs",
             "1": "Designed end-to-end authentication and error-handling flows between the BFF and frontend, including a custom error class–based domain exception framework",
             "2": "Established a consistent async data-loading structure by separating route-level checks from client-side data fetching, primarily using React Query",
-            "3": "Reduced production bundle size by 30% and improved performance through lazy loading, dynamic module loading, and request deduplication",
+            "3": "Reduced production bundle size by 30% by applying dynamic imports to eliminate unnecessary code, and improved load performance through lazy loading and gzip-compressed asset delivery via Vite configuration",
             "4": "Built a complex form state management system using React Hook Form and Zod, including secure file signature verification",
-            "5": "Improved production monitoring security and accuracy by applying Sentry integration with hidden sourcemaps",
+            "5": "Improved production monitoring reliability by configuring Vite to use hidden source maps, eliminating unnecessary source map HTTP requests from monitoring tools while maintaining accurate stack trace resolution",
             "6": "Improved API reliability by migrating from swagger-typescript-api to Orval, introducing OpenAPI-based client generation with Zod-powered runtime response validation, reducing integration errors and increasing confidence in backend data contracts",
             "7": "Enhanced user experience by implementing client-side timeout handling and refetch strategies during BFF delays and gateway timeout scenarios",
             "8": "Contributed to implementing a Canary dark-release deployment strategy to replace the legacy Blue/Green process, enabling stable QA and progressive rollouts"
@@ -37,16 +37,16 @@
           "title": "Naver Financial - Customer Inquiry Portal (Frontend Development, Sub Project)",
           "period": "Oct 2024 – Jan 2025",
           "descriptions": {
-            "0": "Implemented the customer inquiry page with requirement-driven UI improvements",
-            "1": "Improved mobile UI stability through cross-device testing"
+            "0": "Built customer-facing inquiry pages with requirement-driven UI improvements, focusing on usability and clarity",
+            "1": "Improved mobile UI stability through cross-device testing and layout refinements"
           }
         },
         "project3": {
           "title": "Naver Financial - Internal Admin Dashboard (Frontend Development, Sub Project)",
           "period": "Apr 2024 – Jun 2025",
           "descriptions": {
-            "0": "Developed internal admin dashboards using React and applied Jotai for state management",
-            "1": "Integrated multiple BFF and backend APIs to support core features and ensure maintainable service interactions"
+            "0": "Developed internal admin dashboards using React and managed complex UI state with Jotai",
+            "1": "Integrated multiple BFF and backend APIs to support core workflows and maintain clear service boundaries"
           }
         },
         "personalProject": {
