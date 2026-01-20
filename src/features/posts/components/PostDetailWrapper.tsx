@@ -17,7 +17,10 @@ const PostDetailWrapper = ({ title, children }: Props) => {
 
   return (
     <div>
-      <div ref={contentRef} className="prose prose-custom mt-16 max-w-3xl">
+      <div
+        ref={contentRef}
+        className="prose prose-custom mt-10 max-w-3xl md:mt-14"
+      >
         {children}
       </div>
       <aside

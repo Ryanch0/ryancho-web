@@ -16,18 +16,22 @@ const PostContent = async ({ slug, locale }: Props) => {
   const { isAuthorized } = await authCheckHandler()
   const data = await findPostBySlugHandler(slug)
   const title = getColumnFromLocale(locale, data.title, data.title_kr)
+  const subtitle = getColumnFromLocale(locale, data.subtitle, data.subtitle_kr)
 
   return (
     <div>
       <h2 className={'title-style'}>{title}</h2>
-      <div className={'second-font-style py-1'}>
-        <p>{data.date}</p>
-        <span>by</span> <MainLink />
-      </div>
-      <div className="mt-1 flex gap-2 text-sm">
-        {data.tags?.map((tag) => {
-          return <TagItem tag={tag} key={tag} />
-        })}
+      <h3 className={''}>{subtitle}</h3>
+      <div className={'mt-0.5'}>
+        <div className={'second-font-style py-1'}>
+          <p>{data.date}</p>
+          <span>by</span> <MainLink />
+        </div>
+        <div className="mt-1 flex gap-2 text-sm">
+          {data.tags?.map((tag) => {
+            return <TagItem tag={tag} key={tag} />
+          })}
+        </div>
       </div>
       {isAuthorized && (
         <div className={'flex gap-2'}>
