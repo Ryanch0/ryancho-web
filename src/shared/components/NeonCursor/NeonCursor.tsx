@@ -13,12 +13,14 @@ const NeonCursor = () => {
   const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [isClicking, setIsClicking] = useState(false)
+  const [ready, setReady] = useState(false)
 
   const trailControls = useAnimation()
   const glowControls = useAnimation()
 
   const handleMouseMove = useCallback((e) => {
     setPosition({ x: e.clientX, y: e.clientY })
+    setReady(true)
   }, [])
 
   const handleMouseDown = () => setIsClicking(true)
@@ -78,7 +80,7 @@ const NeonCursor = () => {
     setEnabled(window.matchMedia('(hover: hover) and (pointer: fine)').matches)
   }, [])
 
-  if (!enabled) return null
+  if (!enabled || !ready) return null
 
   return (
     <div className="neon-cursor-container">
