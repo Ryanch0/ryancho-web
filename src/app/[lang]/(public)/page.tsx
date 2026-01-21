@@ -1,6 +1,7 @@
 import { ICON_LIST } from '@/constants/iconList'
 import Footer from '@/shared/components/Footer'
 import LinkIcon from '@/shared/components/LinkIcon'
+import NeonCursor from '@/shared/components/NeonCursor/NeonCursor'
 import { getTranslations } from 'next-intl/server'
 
 const Page = async () => {
@@ -8,6 +9,7 @@ const Page = async () => {
 
   return (
     <div className={'flex h-[calc(100dvh-54px)] flex-col gap-4 pt-6 sm:pt-18'}>
+      <NeonCursor />
       <div>
         <h2 className={'title-style home-name pb-6'}>{t('title')}</h2>
         <h4
