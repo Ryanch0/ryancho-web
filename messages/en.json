@@ -2,7 +2,7 @@
   "MainPage": {
     "title": "Ryan Cho",
     "description1": "Find clarity in complex flows and shape them into simpler, more coherent structures. Explore the smallest details and build subtle improvements that lead to better experiences.",
-    "description2": "Currently work at <strong>Naver Financial</strong> as a frontend developer."
+    "description2": "Frontend Engineer previously at <strong>Naver Financial</strong>."
   },
   "AboutPage": {
     "title": "About",
@@ -17,10 +17,10 @@
     "aboutContent": {
       "projects": {
         "company": "Zium Knowledge Service",
-        "role": "Frontend Engineer at Naver Financial  <span>(Oct 2024 - Present)</span>",
+        "role": "Frontend Engineer at Naver Financial  <span>(Oct 2024 - Feb 2026)</span>",
         "project1": {
           "title": "Naver Financial - Corporate Employee Welfare Platform (Frontend Lead)",
-          "period": "Jan 2025 – Present",
+          "period": "Jan 2025 – Feb 2026",
           "descriptions": {
             "0": "Led the design and implementation of a scalable SPA architecture using React Router Data APIs",
             "1": "Designed end-to-end authentication and error-handling flows between the BFF and frontend, including a custom error class–based domain exception framework",
