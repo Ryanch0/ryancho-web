@@ -7,11 +7,11 @@
   "AboutPage": {
     "title": "소개",
     "description": "흔적, 그리고 다음을 향한 흐름",
-    "info": "2026년 3월 18일, 새로운 기회에 도전하고 <strong>프론트엔드 개발자</strong>로서의 경력을 이어가기 위해 캐나다 <strong>밴쿠버(BC)</strong>로 이주할 예정입니다.",
+    "info": "<strong>캐나다</strong>에서 <strong>프론트엔드 개발자</strong>로 새로운 기회를 찾고 있습니다",
     "contact": {
       "text1": "이메일로 언제든지 문의해 주시기 바랍니다: ",
       "text2": "또는 ",
-      "text3": "를 확인해 주세요.",
+      "text3": "를 확인해 주세요",
       "resumeTitle": "이력서"
     },
     "aboutContent": {
